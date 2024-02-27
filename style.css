@@ -1,0 +1,130 @@
+body {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    margin : 0;
+    padding : 0;
+    width : 100%;
+    height : 100vh;
+    background-color: #C5EBAA;
+}
+
+/*전체 컨테이너에 대한 속성*/
+.container {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 30px;
+    width : 70%;
+    height : 80%;
+    border : 1px solid black;
+}
+
+/*컨테이너의 -1. 타이틀존*/
+.title-area {
+    flex-grow : 0;
+    padding : 0.5em;
+}
+.title-area h1{
+    margin : 0;
+}
+
+/*해야할 일이 쌓이는 공간에 대한 속성*/
+.task-area {
+    display : flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /*border : 2px solid red;*/
+    width : 80%;
+    margin: 1em 0;
+    flex-grow : 1;
+}
+
+/*add 버튼 클릭 시 생성되는 할 일 태그에 대한 속성 (완료, 테스크명, 수정, 삭제)*/
+.task {
+    width : 100%; /*task-area의 크기에 맞게*/
+    display : flex;
+    flex-direction: row;
+    margin : 1em 0;
+}
+/*완료 버튼과 테스크 이름*/
+.wrap1 {
+    flex-grow : 1;
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+}
+/*수정과 삭제 버튼*/
+.wrap2 {
+    flex-grow : 0;
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+}
+/*할 일 추가 버튼*/
+#task-done-btn {
+    background-image: url('./img/completeIcon.svg');
+    background-repeat: no-repeat;
+    width : 20px;
+    height : 20px;
+    margin-right : 1em;
+}
+/*수정 버튼*/
+#task-edit-btn {
+    background-image: url('./img/editIcon.svg');
+    background-repeat: no-repeat;
+    width : 20px;
+    height : 20px;
+    margin-right : 1em;
+}
+/*삭제 버튼*/
+#task-delete-btn {
+    background-image: url('./img/deleteIcon.svg');
+    background-repeat: no-repeat;
+    width : 20px;
+    height : 20px;
+}
+
+/*하단 추가 버튼 공간에 대한 속성*/
+.input-area {
+    flex-grow : 0;
+    padding : 0.5em;
+}
+/*하단 추가 버튼*/
+#task-add-btn {
+    width : 30px;
+    height : 30px;
+    background-image: url('./img/addIcon.svg');
+    background-repeat: no-repeat;
+}
+
+/*모달창*/
+.modal-body {
+    display : flex;
+    justify-content : center;
+}
+
+button {
+    border : none;
+    background-color : transparent;
+}
+#micBtn {
+    margin-left : 15px;
+    width : 30px;
+    height : 30px;
+    background-image : url('./img/micIcon.svg');
+    background-repeat: no-repeat;
+}
+.completeBtns {
+    width : 30px;
+    height : 30px;
+    background-image : url('./img/completeIcon.svg');
+    background-repeat : no-repeat;
+}
+.modal-footer {
+    display : flex;
+    justify-content : center;
+}
