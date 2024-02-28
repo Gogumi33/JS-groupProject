@@ -118,6 +118,7 @@ button {
     background-image : url('./img/micIcon.svg');
     background-repeat: no-repeat;
 }
+/*할 일 추가 버튼과 완료 버튼 생김새 정의 (체크표시)*/
 .completeBtns {
     width : 30px;
     height : 30px;

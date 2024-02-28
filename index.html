@@ -13,9 +13,9 @@
             <h1>To do List</h1>
         </div>
         <!--할 일들이 저장되는 task area 공간-->
-        <div class = "task-area">
+        <div id = "task-area-board" class = "task-area">
             <!--할 일 개별인 task 태그. 완료체크박스,테스크명, 수정삭제버튼-->
-            <div class="task">
+            <!--div class="task">
                 <div class = "wrap1">
                     <button id = "task-done-btn" onclick= "completeTask()"></button>
                     <div id = "task-name">청소하기!</div>
@@ -24,9 +24,9 @@
                     <button id = "task-edit-btn" onclick = "editTask()"></button>
                     <button id = "task-delete-btn" onclick = "delTask()"></button>
                 </div>
-            </div>
+            </!--div>
 
-            <div class="task">
+            <div!-- class="task">
                 <div class = "wrap1">
                     <button id = "task-done-btn"></button>
                     <div id = "task-name">강아지 산책시키고 병원가기</div>
@@ -35,7 +35,7 @@
                     <button id = "task-edit-btn"></button>
                     <button id = "task-delete-btn"></button>
                 </div>
-            </div>
+            </div!-->
         </div>
         <!--맨 밑에 있는 할 일 추가 버튼-->
         <div class = "input-area">
@@ -58,21 +58,22 @@
                 </div>
                 <!--모달창 바디 : 인풋창과 마이크 버튼이 있다.-->
                 <div class="modal-body">
-                    <input type = "text" placeholder = "당신의 오늘 할 일은?">
+                    <input id = "modalInput"type = "text" placeholder = "당신의 오늘 할 일은?">
                     <button id = "micBtn" onclick = "record()"></button>
                 </div>
                 <!--모달창 푸터 : 완료 버튼이 있고 누르면 할 일이 추가된다.-->
                 <div class="modal-footer">
-                    <button type="button" class="completeBtns" data-bs-dismiss="modal" onclick="addTask()"></button>
+                    <button id = "completeBtn" type="button" class="completeBtns" data-bs-dismiss="modal"></button>
                 </div>
             </div>
             </div>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="/scripts/addTask.js"></script>
-    <script src="/scripts/completeTask.js"></script>
-    <script src="/scripts/delTask.js"></script>
-    <script src="/scripts/editTask.js"></script>
-    <script src="/scripts/record.js"></script>
+    <script src="./scripts/addTask.js"></script>
+    <script src="./scripts/completeTask.js"></script>
+    <script src="./scripts/delTask.js"></script>
+    <script src="./scripts/editTask.js"></script>
+    <script src="./scripts/record.js"></script>
+    <script src="./scripts/render.js"></script>
 </body>
 </html>
