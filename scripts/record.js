@@ -112,7 +112,7 @@ const recordStart = () => {
     modalInput.value = e.results[0][0].transcript;
   });
 
-  recognition.start();
+  recognition.start(); //음성인식을 시작
 };
 
 const recordStop = () => {
