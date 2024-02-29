@@ -33,7 +33,7 @@ const render = (mode) => {
                         <div class = "task-doing-name">${taskList[i].taskContent}</div>
                     </div>
                     <div class = "wrap2">
-                        <button id = "task-edit-btn" onclick = "editTask('${taskList[i].id}')"></button>
+                        <button id = "task-edit-btn" onclick = "editTask('${taskList[i].taskContent}', '${taskList[i].id}')" data-bs-toggle="modal" data-bs-target="#editModal"></button>
                         <button id = "task-delete-btn" onclick = "delTask('${taskList[i].id}')"></button>
                     </div>
                 </div>
@@ -48,10 +48,10 @@ const render = (mode) => {
                 <div id = ${taskList[i].id} class="task">
                     <div class = "wrap1">
                         <button id = "task-done-btn" onclick= "completeTask('${taskList[i].id}')"></button>
-                        <div class = "task-doing-name">${taskList[i].taskContent}</div>
+                        <div class = "task-done-name">${taskList[i].taskContent}</div>
                     </div>
                     <div class = "wrap2">
-                        <button id = "task-edit-btn" onclick = "editTask('${taskList[i].id}')"></button>
+                        <button id = "task-edit-btn" onclick = "editTask('${taskList[i].taskContent}', '${taskList[i].id}')" data-bs-toggle="modal" data-bs-target="#editModal"></button>
                         <button id = "task-delete-btn" onclick = "delTask('${taskList[i].id}')"></button>
                     </div>
                 </div>
