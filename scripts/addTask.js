@@ -29,7 +29,7 @@ const addTask = (event) => {
     taskList.push(task);
     localStorage.setItem(TODO_KEY, JSON.stringify(taskList)); //value값에 보통 key값을 넣진 않음. 로컬스토리지에 task객체 저장
     taskInput.value = '';
-    render();
+    render("doing");
     modalInit();
 
     console.log("할 일 추가 완료");
