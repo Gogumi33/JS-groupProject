@@ -1,5 +1,6 @@
 let changedValue = document.getElementById("changedInput");
 let editButton = document.getElementById("editBtn");
+console.log(changedValue, editButton);
 let editHTML = ""; // 수정 모달창 부분에 수정할 값을 미리 받아와줄 변수
 let currentID = ""; // 수정 시 어떤것을 수정할 것인지에 대한 판별 ID
 
@@ -28,11 +29,12 @@ const changeTask = (event) => {
     for(let i=0; i<taskList.length; i++){
         if(taskList[i].id == currentID){ // 수정해야할 task의 id찾기
             taskList[i].taskContent = changedInput.value;
+            console.log(taskList[i]);
         }
     }
     localStorage.clear(); // 로컬스토리지 비우기
     localStorage.setItem(TODO_KEY, JSON.stringify(taskList)); // 다시 새로운 taskList 넣기
-    render();
+    render(renderStatus);
 
     console.log("할 일 수정 완료");
 }
@@ -43,3 +45,4 @@ changedValue.addEventListener("keydown", function(event) {
         changeTask(event);
     }
 })
+console.log("changedValue",changedValue);
