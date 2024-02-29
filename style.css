@@ -87,6 +87,9 @@ body {
     width : 20px;
     height : 20px;
 }
+.task-done-name {
+    text-decoration : line-through;
+}
 
 /*하단 추가 버튼 공간에 대한 속성*/
 .input-area {

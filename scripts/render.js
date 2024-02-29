@@ -22,18 +22,35 @@ const render = () => {
     
     //로컬스토리지에 저장된 할 일 리스트를 순회한다.
     for(let i=0; i<taskList.length; i++){
-        resultHTML += `
+        if (taskList[i].isComplete) { //다 끝낸 일이라면
+            resultHTML += `
             <div id = ${taskList[i].id} class="task">
                 <div class = "wrap1">
-                    <button id = "task-done-btn" onclick= "completeTask()"></button>
-                    <div id = "task-name">${taskList[i].taskContent}</div>
+                    <button id = "task-done-btn" onclick= "completeTask('${taskList[i].id}')"></button>
+                    <div class = "task-done-name">${taskList[i].taskContent}</div>
                 </div>
                 <div class = "wrap2">
-                    <button id = "task-edit-btn" onclick = "editTask()"></button>
-                    <button id = "task-delete-btn" onclick = "delTask()"></button>
+                    <button id = "task-edit-btn" onclick = "editTask('${taskList[i].id}')"></button>
+                    <button id = "task-delete-btn" onclick = "delTask('${taskList[i].id}')"></button>
                 </div>
             </div>
         `
+        }
+        else { //다 끝내지 못한 일이라면(진행중)
+            resultHTML += `
+            <div id = ${taskList[i].id} class="task">
+                <div class = "wrap1">
+                    <button id = "task-done-btn" onclick= "completeTask('${taskList[i].id}')"></button>
+                    <div class = "task-doing-name">${taskList[i].taskContent}</div>
+                </div>
+                <div class = "wrap2">
+                    <button id = "task-edit-btn" onclick = "editTask('${taskList[i].id}')"></button>
+                    <button id = "task-delete-btn" onclick = "delTask('${taskList[i].id}')"></button>
+                </div>
+            </div>
+        `
+        }
+
     }
     document.getElementById("task-area-board").innerHTML = resultHTML;
 }
