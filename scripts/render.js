@@ -29,7 +29,7 @@ const render = () => {
                 <div id = "task-name">${taskList[i].taskContent}</div>
             </div>
             <div class = "wrap2">
-                <button id = "task-edit-btn" onclick = "editTask()"></button>
+                <button id = "task-edit-btn" onclick = "editTask('${taskList[i].taskContent}', '${taskList[i].id}')" data-bs-toggle="modal" data-bs-target="#editModal"></button>
                 <button id = "task-delete-btn" onclick = "delTask()"></button>
             </div>
         </div>

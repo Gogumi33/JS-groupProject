@@ -1,6 +1,6 @@
 /* 모달창 확인 버튼을 누르면 할 일이 추가되거나 입력 안했을 시 경고창을 띄운다 */
 let taskInput = document.getElementById("modalInput");
-let addButton = document.getElementById("completeBtn");
+let addButton = document.getElementById("completeBtn"); // 할일 추가버튼
 let taskModal = document.getElementById("")
 const TODO_KEY = 'todo';
 let taskList = []

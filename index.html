@@ -15,16 +15,16 @@
         <!--할 일들이 저장되는 task area 공간-->
         <div id = "task-area-board" class = "task-area">
             <!--할 일 개별인 task 태그. 완료체크박스,테스크명, 수정삭제버튼-->
-            <!--div class="task">
+            <!--<div class="task">
                 <div class = "wrap1">
                     <button id = "task-done-btn" onclick= "completeTask()"></button>
                     <div id = "task-name">청소하기!</div>
                 </div>
                 <div class = "wrap2">
-                    <button id = "task-edit-btn" onclick = "editTask()"></button>
+                    <button id = "task-edit-btn" onclick = "editTask()" data-bs-toggle="modal" data-bs-target="#editModal"></button>
                     <button id = "task-delete-btn" onclick = "delTask()"></button>
                 </div>
-            </!--div>
+            </div>
 
             <div!-- class="task">
                 <div class = "wrap1">
@@ -68,6 +68,33 @@
             </div>
             </div>
         </div>
+
+        <!------- 수정용 모달 구분선 ------->
+
+    <!-- Modal -->
+        <!--모달 전체를 포함하는 어두운 창-->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!--모달 전체 창 : 중앙에 배치하기-->
+        <div class="modal-dialog modal-dialog-centered">
+            <!--모달 안에 창-->
+            <div class="modal-content">
+                <!--모달창 헤더 : 모달창 전체 제목과 엑스 버튼이 있음-->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">✎ 할 일 수정하기</h5>
+                    <button type="button" class="btn-close" onclick = "modalInit()" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!--모달창 바디 : 인풋창과 마이크 버튼이 있다.-->
+                <div class="modal-body" id="editInput">
+
+                </div>
+                <!--모달창 푸터 : 완료 버튼이 있고 누르면 할 일이 추가된다.-->
+                <div class="modal-footer">
+                    <button id = "editBtn" type="button" class="completeBtns" data-bs-dismiss="modal"></button>
+                </div>
+            </div>
+            </div>
+        </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="./scripts/addTask.js"></script>
     <script src="./scripts/completeTask.js"></script>
