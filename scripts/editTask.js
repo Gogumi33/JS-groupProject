@@ -1,6 +1,6 @@
 let changedValue = document.getElementById("changedInput");
 let editButton = document.getElementById("editBtn");
-console.log(changedValue, editButton);
+console.log("editTask",changedValue, editButton);
 let editHTML = ""; // 수정 모달창 부분에 수정할 값을 미리 받아와줄 변수
 let currentID = ""; // 수정 시 어떤것을 수정할 것인지에 대한 판별 ID
 
@@ -41,9 +41,11 @@ const changeTask = (event) => {
 }
 
 editButton.addEventListener("click", changeTask);
+console.log("changedValue",changedValue);
+/*
 changedValue.addEventListener("keydown", function(event) {
     if(event.keyCode === 13) {
         changeTask(event);
     }
-})
+})*/
 console.log("changedValue",changedValue);
