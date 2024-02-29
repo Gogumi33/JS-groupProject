@@ -37,9 +37,9 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    /*border : 2px solid red;*/
+    border : 1px solid red;
     width : 80%;
-    margin: 1em 0;
+    /*margin: 1em 0;*/
     flex-grow : 1;
 }
 
@@ -86,6 +86,9 @@ body {
     background-repeat: no-repeat;
     width : 20px;
     height : 20px;
+}
+.task-done-name {
+    text-decoration : line-through;
 }
 
 /*하단 추가 버튼 공간에 대한 속성*/

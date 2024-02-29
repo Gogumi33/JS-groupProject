@@ -12,6 +12,10 @@
         <div class = "title-area">
             <h1>To do List</h1>
         </div>
+        <div class = "taskStatus">
+            <button onclick="render(`doing`)">진행중</button>
+            <button onclick="render(`done`)">진행완료</button>
+        </div>
         <!--할 일들이 저장되는 task area 공간-->
         <div id = "task-area-board" class = "task-area">
             <!--할 일 개별인 task 태그. 완료체크박스,테스크명, 수정삭제버튼-->
