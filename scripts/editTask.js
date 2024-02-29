@@ -28,8 +28,9 @@ const editTask = (task, id) => {
 const changeTask = (event) => {
     for(let i=0; i<taskList.length; i++){
         if(taskList[i].id == currentID){ // 수정해야할 task의 id찾기
+            //수정하고자 하는 데이터의 isComplete이 true이면 다 함 (done), false이면 하는중 (doing)
+            renderStatus = taskList[i].isComplete ? "done" : "doing"; 
             taskList[i].taskContent = changedInput.value;
-            console.log(taskList[i]);
         }
     }
     localStorage.clear(); // 로컬스토리지 비우기
