@@ -1,38 +1,34 @@
 /* 모달창 확인 버튼을 누르면 할 일이 추가되거나 입력 안했을 시 경고창을 띄운다 */
 let taskInput = document.getElementById("modalInput");
 let addButton = document.getElementById("completeBtn"); // 할일 추가버튼
-let taskModal = document.getElementById("")
 const TODO_KEY = 'todo';
-let taskList = []
-console.log("새로고침", taskList);
-console.log(taskInput);
-console.log(addButton);
+//로컬스토리지에 저장된 value값과 동기화시키는 taskList 리스트
+let taskList = [];
 
 
-/* 모달창 확인 버튼을 누르면 할 일이 추가되거나 입력 안했을 시 경고창을 띄운다 */
+/* addTask : 모달창 확인 버튼을 눌렀을 때 (클릭이벤트 발생) 모달창을 켜서 할 일을 추가하는 함수
+모달창에 입력값을 주지 않을 때 alert 창이 나오며 경고메세지를 보여준다. */
 const addTask = (event) => {
-    //console.log("addTask 함수 실행"); 
-    console.log(taskInput.value);
     if(taskInput.value == ''){
         alert(`할 일을 작성 후 추가버튼을 눌러주세요!`);
         return;
     }
 
-    /* task 객체 : id는 랜덤값, taskContent는 할 일, isComplete는 완료 여부*/
+    /* 해야 할 일에 대한 정보를 담은task 객체
+        - id는 랜덤값
+        - taskContent는 할 일
+        - isComplete는 완료 여부(true = done = 완료, false = doing = 진행중)*/
     let task = {
-        id: randomIDGenerate(), //value에 객체의 id도 저장되는게 이상함
+        id: randomIDGenerate(),
         taskContent: taskInput.value,
         isComplete: false
     }
 
-
-    taskList.push(task);
-    localStorage.setItem(TODO_KEY, JSON.stringify(taskList)); //value값에 보통 key값을 넣진 않음. 로컬스토리지에 task객체 저장
-    taskInput.value = '';
-    render("doing");
-    modalInit();
-
-    console.log("할 일 추가 완료");
+    taskList.push(task); //taskList에 객체를 저장하고
+    localStorage.setItem(TODO_KEY, JSON.stringify(taskList)); //taskList를 로컬스토리지에 value값으로 저장 (정확히는 덮어쓴다)
+    taskInput.value = ''; //로컬스토리지 저장 후 모달창의 인풋창을 지워준다.
+    render("doing"); //값을 추가한 뒤 화면에 렌더 (상태 = doing = 진행중인 창을 띄워준다.)
+    modalInit(); //모달창 초기화
 }
 
 /* 랜덤으로 ID를 생성해주는 함수 */

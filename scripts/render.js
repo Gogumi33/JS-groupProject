@@ -29,12 +29,12 @@ const render = (mode) => {
                 resultHTML += `
                 <div id = ${taskList[i].id} class="task">
                     <div class = "wrap1">
-                        <button id = "task-done-btn" onclick= "completeTask('${taskList[i].id}')"></button>
+                        <button class = "task-done-btn" onclick= "completeTask('${taskList[i].id}')"></button>
                         <div class = "task-doing-name">${taskList[i].taskContent}</div>
                     </div>
                     <div class = "wrap2">
-                        <button id = "task-edit-btn" onclick = "editTask('${taskList[i].taskContent}', '${taskList[i].id}')" data-bs-toggle="modal" data-bs-target="#editModal"></button>
-                        <button id = "task-delete-btn" onclick = "deleteTask('${taskList[i].id}')"></button>
+                        <button class = "task-edit-btn" onclick = "editTask('${taskList[i].taskContent}', '${taskList[i].id}')" data-bs-toggle="modal" data-bs-target="#editModal"></button>
+                        <button class = "task-delete-btn" onclick = "deleteTask('${taskList[i].id}')"></button>
                     </div>
                 </div>
             `
@@ -47,12 +47,12 @@ const render = (mode) => {
                 resultHTML += `
                 <div id = ${taskList[i].id} class="task">
                     <div class = "wrap1">
-                        <button id = "task-done-btn" onclick= "completeTask('${taskList[i].id}')"></button>
+                        <button class = "task-done-btn" onclick= "completeTask('${taskList[i].id}')"></button>
                         <div class = "task-done-name">${taskList[i].taskContent}</div>
                     </div>
                     <div class = "wrap2">
-                        <button id = "task-edit-btn" onclick = "editTask('${taskList[i].taskContent}', '${taskList[i].id}')" data-bs-toggle="modal" data-bs-target="#editModal"></button>
-                        <button id = "task-delete-btn" onclick = "deleteTask('${taskList[i].id}')"></button>
+                        <button class = "task-edit-btn" onclick = "editTask('${taskList[i].taskContent}', '${taskList[i].id}')" data-bs-toggle="modal" data-bs-target="#editModal"></button>
+                        <button class = "task-delete-btn" onclick = "deleteTask('${taskList[i].id}')"></button>
                     </div>
                 </div>
             `
