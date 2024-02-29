@@ -12,5 +12,6 @@ function deleteTask(taskId) {
         break;
       }
     }
-    render(renderStatus);
   }
+  render(renderStatus);
+}
