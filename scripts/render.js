@@ -23,16 +23,16 @@ const render = () => {
     //로컬스토리지에 저장된 할 일 리스트를 순회한다.
     for(let i=0; i<taskList.length; i++){
         resultHTML += `
-            <div class="task">
-            <div class = "wrap1">
-                <button id = "task-done-btn" onclick= "completeTask()"></button>
-                <div id = "task-name">${taskList[i].taskContent}</div>
+            <div id = ${taskList[i].id} class="task">
+                <div class = "wrap1">
+                    <button id = "task-done-btn" onclick= "completeTask()"></button>
+                    <div id = "task-name">${taskList[i].taskContent}</div>
+                </div>
+                <div class = "wrap2">
+                    <button id = "task-edit-btn" onclick = "editTask()"></button>
+                    <button id = "task-delete-btn" onclick = "delTask()"></button>
+                </div>
             </div>
-            <div class = "wrap2">
-                <button id = "task-edit-btn" onclick = "editTask()"></button>
-                <button id = "task-delete-btn" onclick = "delTask()"></button>
-            </div>
-        </div>
         `
     }
     document.getElementById("task-area-board").innerHTML = resultHTML;
