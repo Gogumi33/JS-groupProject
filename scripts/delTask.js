@@ -12,5 +12,7 @@ function deleteTask(taskId) {
       break;
     }
   }
+  console.log("todolist", JSON.stringify(taskList));
+  render(renderStatus);
+  ProgressTask();
 }
-render(renderStatus);
