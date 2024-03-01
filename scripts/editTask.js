@@ -17,7 +17,6 @@ const editTask = (task, id) => {
     `;
   document.getElementById("editInput").innerHTML = editHTML;
   currentID = id;
-  updateProgressBarTask();
 };
 
 /*
