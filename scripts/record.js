@@ -2,6 +2,7 @@ const record = () => {
   console.log("음성 인식 준비");
   recordStartBtnCreate();
 };
+document.getElementById("micBtn").addEventListener("click", record);
 
 const recordStartBtnCreate = () => {
   // 기존의 hide 클래스 추가
@@ -23,7 +24,7 @@ const recordStartBtnCreate = () => {
   // 녹음 중 이미지 생성
   const recordingImage = document.createElement("img");
   recordingImage.src =
-    "https://c8.alamy.com/zooms/9/f7c24786b30248759d7e27f15b884a20/2c310gh.jpg"; // 녹음 중 이미지 URL로 변경
+    "https://w7.pngwing.com/pngs/316/323/png-transparent-button-phonograph-record-computer-icons-button-root-sound-recording-and-reproduction-record-thumbnail.png"; // 녹음 중 이미지 URL로 변경
   recordingImage.alt = "Recording Image";
   recordingImage.style.width = "50px"; // 원하는 크기로 조절
   recordingImage.style.height = "50px"; // 원하는 크기로 조절
@@ -48,13 +49,13 @@ const recordStopBtnCreate = () => {
   recordStopBtn.onclick = function () {
     console.log("recordStopBtn 클릭되었습니다.");
     recordStop();
-    modalInit();
+    recordIconInit();
   };
 
   // 녹음 중지 이미지 생성
   const recordingStopImage = document.createElement("img");
   recordingStopImage.src =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEBU-RQIgLzxk5ibJZ57CcN1qhVycdQ_0H-w&usqp=CAU"; // 녹음 중 이미지 URL로 변경
+    "https://cdn-icons-png.freepik.com/512/1279/1279899.png"; // 녹음 중 이미지 URL로 변경
   recordingStopImage.alt = "Recording Image";
   recordingStopImage.style.width = "50px"; //
   recordingStopImage.style.height = "50px"; //
@@ -66,7 +67,7 @@ const recordStopBtnCreate = () => {
   document.querySelector(".modal-body").appendChild(recordStopBtn);
 };
 
-const modalInit = () => {
+const recordIconInit = () => {
   const recordStartBtn = document.getElementById("recordStartBtn");
   const recordStopBtn = document.getElementById("recordStopBtn");
 
@@ -79,7 +80,9 @@ const modalInit = () => {
   }
 };
 
-const modalInput = document.getElementById("modalInput");
+document.querySelector(".btn-close").addEventListener("click", recordIconInit);
+
+
 
 const availabilityFunc = () => {
   //현재 SpeechRecognition을 지원하는 크롬 버전과 webkit 형태로 제공되는 버전이 있으므로 둘 중 해당하는 생성자를 호출한다.
@@ -95,7 +98,6 @@ const availabilityFunc = () => {
 const recordStart = () => {
   console.log("시작");
 
-  
   recognition.addEventListener("speechstart", () => {
     console.log("인식");
   });
@@ -103,13 +105,15 @@ const recordStart = () => {
   //음성인식이 끝까지 이루어지면 중단된다.
   recognition.addEventListener("speechend", () => {
     console.log("인식2");
-    modalInit();
+    recordIconInit();
   });
 
   //음성인식 결과를 반환
   // SpeechRecognitionResult 에 담겨서 반환된다.
   recognition.addEventListener("result", (e) => {
-    modalInput.value = e.results[0][0].transcript;
+    taskInput.value = e.results[0][0].transcript;
+    recordStop();
+    document.getElementById("completeBtn").click();
   });
 
   recognition.start(); //음성인식을 시작
@@ -119,5 +123,11 @@ const recordStop = () => {
   console.log("종료");
   recognition.stop(); // 음성인식을 중단하고 중단까지의 결과를 반환
 };
+window.addEventListener("load", () => {
+  availabilityFunc();
+});
 
-window.addEventListener("load", availabilityFunc);
+
+
+
+
