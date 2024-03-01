@@ -1,5 +1,5 @@
 let resultHTML; //화면에 그려줄 HTML
-let filterlist = []; //로컬스토리지에서 필터링 된 값들
+let filterList = []; //로컬스토리지에서 필터링 된 값들
 const render = (mode) => {
   console.log("render 함수 실행");
 

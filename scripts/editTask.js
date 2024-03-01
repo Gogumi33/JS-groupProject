@@ -1,6 +1,6 @@
 let changedValue = document.getElementById("changedInput");
 let editButton = document.getElementById("editBtn");
-console.log("editTask",changedValue, editButton);
+console.log("editTask", changedValue, editButton);
 let editHTML = ""; // 수정 모달창 부분에 수정할 값을 미리 받아와줄 변수
 let currentID = ""; // 수정 시 어떤것을 수정할 것인지에 대한 판별 ID
 
@@ -11,14 +11,14 @@ let currentID = ""; // 수정 시 어떤것을 수정할 것인지에 대한 판
     전역변수 currentID에 해당 id를 저장해둔다.
 */
 const editTask = (task, id) => {
-    editHTML = `
+  editHTML = `
     <input id = "changedInput" type = "text" value="${task}">
     <button id = "micBtn" onclick = "record()"></button>
-    `
-    document.getElementById("editInput").innerHTML = editHTML;
-    currentID = id;
-}
-
+    `;
+  document.getElementById("editInput").innerHTML = editHTML;
+  currentID = id;
+  updateProgressBarTask();
+};
 
 /*
     할 일 수정 함수2
@@ -26,26 +26,27 @@ const editTask = (task, id) => {
     수정을 마치면, 원래의 로컬스토리지를 아예 싹 비우고, 새로운 taskList를 다시 넣어 렌더링한다.
 */
 const changeTask = (event) => {
-    for(let i=0; i<taskList.length; i++){
-        if(taskList[i].id == currentID){ // 수정해야할 task의 id찾기
-            //수정하고자 하는 데이터의 isComplete이 true이면 다 함 (done), false이면 하는중 (doing)
-            renderStatus = taskList[i].isComplete ? "done" : "doing"; 
-            taskList[i].taskContent = changedInput.value;
-        }
+  for (let i = 0; i < taskList.length; i++) {
+    if (taskList[i].id == currentID) {
+      // 수정해야할 task의 id찾기
+      //수정하고자 하는 데이터의 isComplete이 true이면 다 함 (done), false이면 하는중 (doing)
+      renderStatus = taskList[i].isComplete ? "done" : "doing";
+      taskList[i].taskContent = changedInput.value;
     }
-    localStorage.clear(); // 로컬스토리지 비우기
-    localStorage.setItem(TODO_KEY, JSON.stringify(taskList)); // 다시 새로운 taskList 넣기
-    render(renderStatus);
+  }
+  localStorage.clear(); // 로컬스토리지 비우기
+  localStorage.setItem(TODO_KEY, JSON.stringify(taskList)); // 다시 새로운 taskList 넣기
+  render(renderStatus);
 
-    console.log("할 일 수정 완료");
-}
+  console.log("할 일 수정 완료");
+};
 
 editButton.addEventListener("click", changeTask);
-console.log("changedValue",changedValue);
+console.log("changedValue", changedValue);
 /*
 changedValue.addEventListener("keydown", function(event) {
     if(event.keyCode === 13) {
         changeTask(event);
     }
 })*/
-console.log("changedValue",changedValue);
+console.log("changedValue", changedValue);
