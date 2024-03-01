@@ -11,3 +11,6 @@ const ProgressTask = () => {
 };
 
 ProgressTask();
+console.log("완료갯수", completedCount);
+console.log("완료진행률", percent);
+render();
