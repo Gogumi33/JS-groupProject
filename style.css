@@ -113,6 +113,7 @@ body {
   /* align-items: center; */
   justify-content: flex-start;
 }
+/* 완료 버튼과 테스크 이름 */
 #wrap1-1 {
   display: flex;
   flex-direction: row;
@@ -153,6 +154,9 @@ body {
   height: 20px;
 }
 .task-done-name {
+  text-decoration: line-through;
+}
+.task-done-time {
   text-decoration: line-through;
 }
 
@@ -204,8 +208,9 @@ button {
   display: flex;
   justify-content: center;
 }
-#time-picker {
-  width: 130px;
+/* 달력,시간입력하는 input창 */
+#date-time-picker {
+  width: 210px;
 }
 /*할 일 추가 버튼과 완료 버튼 생김새 정의 (체크표시)*/
 .completeBtns {
