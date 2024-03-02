@@ -40,7 +40,7 @@ body {
   width: 85%;
   height: 80%;
   /*border: 1px solid black;*/
-  padding: 1em;
+  padding: 1.5em;
   fill: rgba(255, 255, 255, 0.13);
   box-shadow: -50.467px 50.467px 50.467px 0px rgba(255, 255, 255, 0.13) inset,
     50.467px -50.467px 50.467px 0px rgba(194, 194, 194, 0.13) inset;
@@ -73,6 +73,8 @@ body {
 .date-and-weather-area {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 #current-weather{
   background-image: url('./img/cloudyIcon.png');
@@ -80,7 +82,7 @@ body {
   background-size: cover;
   width : 30px;
   height : 30px;
-  
+  margin-left : 5px;
 }
 
 /*컨테이너의 -2. 진행중, 진행완료 div 박스*/
@@ -189,10 +191,14 @@ body {
 }
 /*하단 추가 버튼*/
 #task-add-btn {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-image: url("./img/addIcon.svg");
   background-repeat: no-repeat;
+}
+#task-add-btn:hover{
+  transition : all 0.2s linear;
+  transform: scale(1.4)
 }
 /* 새로고침 버튼 */
 #refresh-btn {
@@ -262,4 +268,18 @@ button {
 #micAddOnBtn img {
   width: 35px; /* 원하는 크기로 조절 */
   height: auto; /* 비율을 유지하면서 크기 조절 */
+}
+
+
+/*태블릿 사이즈*/
+@media (min-width : 600px) and (max-width : 992px) {
+  .container {
+    width : 65%;
+  }
+}
+/*데스트탑 사이즈*/
+@media (min-width : 992px) {
+  .container {
+    width : 45%;
+  }
 }
