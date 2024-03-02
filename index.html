@@ -15,6 +15,7 @@
   <body>
     <div class="container">
       <div class="title-area">
+        <button id="micAddOnBtn"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN4oSAZkVmHTQYXyhxfGRrust8sd_ulla67A&usqp=CAU" alt="이미지 버튼"></button>
         <h1>To do List</h1>
       </div>
       <div class="taskStatus">
@@ -31,9 +32,8 @@
           type="button"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
-        >
+        ></button>
           <button id="refresh-btn" onclick="taskReset()"></button>
-        </button>
       </div>
     </div>
     <!-- Modal -->
@@ -58,7 +58,6 @@
               type="button"
               class="btn-close"
               id="btnClose"
-              onclick="modalInit()"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
@@ -70,7 +69,7 @@
               type="text"
               placeholder="당신의 오늘 할 일은?"
             />
-            <button id="micBtn" onclick="record()"></button>
+            <button id="micBtn"></button>
           </div>
           <!-- 데드라인 콘테이너 : 시간, 분을 설정할 수 있다.  -->
           <div id="deadline-container">

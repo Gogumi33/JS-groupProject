@@ -1,5 +1,6 @@
 const micAddOnBtn = document.getElementById("micAddOnBtn");
 const recordOnAddBtn = () => {
+  availabilityFunc();
   recognition.addEventListener("speechstart", () => {});
 
   //음성인식이 끝까지 이루어지면 중단된다.
@@ -20,4 +21,10 @@ const recordOnAddBtn = () => {
   recognition.start(); //음성인식을 시작
 };
 
-micAddOnBtn.addEventListener("click", recordOnAddBtn);
+micAddOnBtn.addEventListener('click', () => {
+  // 첫 번째 함수 호출
+  availabilityFunc();
+
+  // 두 번째 함수 호출
+  recordOnAddBtn();
+});

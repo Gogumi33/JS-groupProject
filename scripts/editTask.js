@@ -13,7 +13,7 @@ let currentID = ""; // 수정 시 어떤것을 수정할 것인지에 대한 판
 const editTask = (task, id) => {
   editHTML = `
     <input id = "changedInput" type = "text" value="${task}">
-    <button id = "micBtn" onclick = "record()"></button>
+    <button id = "micBtn""></button>
     `;
   document.getElementById("editInput").innerHTML = editHTML;
   currentID = id;
