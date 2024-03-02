@@ -31,6 +31,7 @@ const addTask = (event) => {
   addInputTextInit();
   
   new Notification("할 일 알림", {body:'할 일이 추가되었습니다.'});
+  ProgressTask();
 };
 
 /* 랜덤으로 ID를 생성해주는 함수 */
