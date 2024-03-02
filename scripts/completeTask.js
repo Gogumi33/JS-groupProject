@@ -18,4 +18,5 @@ function completeTask(taskId) {
   console.log("complete", taskList, renderStatus);
   localStorage.setItem(TODO_KEY, JSON.stringify(taskList)); //다시 해야 할 일을 string형태로 바꿔서 로컬스토리지에 저장하고
   render(renderStatus); //화면에 출력
+  ProgressTask();
 }
