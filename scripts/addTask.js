@@ -20,17 +20,19 @@ const addTask = (event) => {
   let task = {
     id: randomIDGenerate(),
     taskContent: taskInput.value,
+    deadlineTime: timePicker.value,
     isComplete: false,
   };
 
   taskList.push(task); //taskList에 객체를 저장하고
   localStorage.setItem(TODO_KEY, JSON.stringify(taskList)); //taskList를 로컬스토리지에 value값으로 저장 (정확히는 덮어쓴다)
   taskInput.value = ""; //로컬스토리지 저장 후 모달창의 인풋창을 지워준다.
+  timePicker.value = ""; // 데드라인 설정시간을 초기화 시켜준다.
   render("doing"); //값을 추가한 뒤 화면에 렌더 (상태 = doing = 진행중인 창을 띄워준다.)
   recordIconInit(); //마이크아이콘 초기화
   addInputTextInit();
-  
-  new Notification("할 일 알림", {body:'할 일이 추가되었습니다.'});
+
+  new Notification("할 일 알림", { body: "할 일이 추가되었습니다." });
   ProgressTask();
 };
 
