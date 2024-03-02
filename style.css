@@ -34,11 +34,30 @@ body {
   align-items: center;
   justify-content: center;
   flex-grow: 0;
-  padding: 0.5em;
+  padding: 0.3em;
+  width : 100%;
+  justify-content:space-between;
 }
-.title-area h1 {
-  margin: 0;
+
+/*년, 월, 일이 출력되는 date-area*/
+.date-area {
+  display : flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
+#current-date {
+  font-size : 40px;
+  margin-right : 0.2em;
+}
+/*요일과 날씨가 출력되는 date-and-weather-area*/
+.date-and-weather-area {
+  display : flex;
+  flex-direction: row;
+}
+
+
+
 
 /*컨테이너의 -2. 진행중, 진행완료 div 박스*/
 .taskStatus {
@@ -71,14 +90,26 @@ body {
 .task {
   width: 100%; /*task-area의 크기에 맞게*/
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 1em 0;
 }
-/*완료 버튼과 테스크 이름, 데드라인 묶음*/
+
+.dummy {
+  width: 20px;
+  height: 20px;
+  margin-right: 1em;
+}
+
+
+/*완료 버튼과 테스크 이름*/
+.wrapContainer {
+  width : 100%;
+  display : flex;
+}
 .wrap1 {
   flex-grow: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   /* align-items: center; */
   justify-content: flex-start;
 }
@@ -90,6 +121,7 @@ body {
 /* 렌더상의 데드라인박스 */
 #dead {
   display: flex;
+  flex-direction: row;
 }
 /*수정과 삭제 버튼*/
 .wrap2 {
