@@ -74,6 +74,14 @@ body {
   display: flex;
   flex-direction: row;
 }
+#current-weather{
+  background-image: url('./img/cloudyIcon.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width : 30px;
+  height : 30px;
+  
+}
 
 /*컨테이너의 -2. 진행중, 진행완료 div 박스*/
 .taskStatus {
