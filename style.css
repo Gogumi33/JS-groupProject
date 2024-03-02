@@ -31,7 +31,7 @@ body {
 /*컨테이너의 -1. 타이틀존*/
 .title-area {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   flex-grow: 0;
   padding: 0.3em;
@@ -43,10 +43,12 @@ body {
 .date-area {
   display : flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 #current-date {
-  font-size : 30px;
-  margin-right : 0.5em;
+  font-size : 40px;
+  margin-right : 0.2em;
 }
 /*요일과 날씨가 출력되는 date-and-weather-area*/
 .date-and-weather-area {
@@ -88,14 +90,26 @@ body {
 .task {
   width: 100%; /*task-area의 크기에 맞게*/
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 1em 0;
 }
+
+.dummy {
+  width: 20px;
+  height: 20px;
+  margin-right: 1em;
+}
+
+
 /*완료 버튼과 테스크 이름*/
+.wrapContainer {
+  width : 100%;
+  display : flex;
+}
 .wrap1 {
   flex-grow: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   /* align-items: center; */
   justify-content: flex-start;
 }
@@ -106,6 +120,7 @@ body {
 /* 렌더상의 데드라인박스 */
 #dead {
   display: flex;
+  flex-direction: row;
 }
 /*수정과 삭제 버튼*/
 .wrap2 {
