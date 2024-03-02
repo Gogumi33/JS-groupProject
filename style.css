@@ -58,8 +58,17 @@ body {
 .wrap1 {
   flex-grow: 1;
   display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: flex-start;
+}
+#wrap1-1 {
+  display: flex;
   flex-direction: row;
-  align-items: center;
+}
+/* 렌더상의 데드라인박스 */
+#dead {
+  display: flex;
 }
 /*수정과 삭제 버튼*/
 .wrap2 {
@@ -136,6 +145,15 @@ button {
   height: 30px;
   background-image: url("./img/micIcon.svg");
   background-repeat: no-repeat;
+}
+/* 데드라인 입력창 */
+#deadline-container {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+#time-picker {
+  width: 130px;
 }
 /*할 일 추가 버튼과 완료 버튼 생김새 정의 (체크표시)*/
 .completeBtns {

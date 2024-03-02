@@ -57,6 +57,7 @@
             <button
               type="button"
               class="btn-close"
+              id="btnClose"
               onclick="modalInit()"
               data-bs-dismiss="modal"
               aria-label="Close"
@@ -70,6 +71,11 @@
               placeholder="당신의 오늘 할 일은?"
             />
             <button id="micBtn" onclick="record()"></button>
+          </div>
+          <!-- 데드라인 콘테이너 : 시간, 분을 설정할 수 있다.  -->
+          <div id="deadline-container">
+            <span>데드라인</span>
+            <input id="time-picker" type="time" />
           </div>
           <!--모달창 푸터 : 완료 버튼이 있고 누르면 할 일이 추가된다.-->
           <div class="modal-footer">
@@ -139,5 +145,7 @@
     <script src="./scripts/recordOnBtn.js"></script>
     <script src="./scripts/alert.js"></script>
     <script src="./scripts/progressTask.js"></script>
+    <script src="./scripts/deadLine.js"></script>
+    <script src="./scripts/leftTime.js"></script>
   </body>
 </html>
