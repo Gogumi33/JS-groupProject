@@ -15,6 +15,19 @@
   font-family: "joa";
   src: url(font/jua.ttf);
 }
+
+.cloudyBg {
+  background-image: url('./img/cloudybackground.jpg');
+}
+.rainyBg {
+  background-image: url('./img/rainybackground.jpg');
+}
+.sunnyBg {
+  background-image: url('./img/sunnybackground.jpg');
+}
+.snowyBg {
+  background-image: url('./img/snowybackground.jpg');
+}
 body {
   display: flex;
   justify-content: center;
@@ -28,6 +41,9 @@ body {
   background-size: cover;
   font-family: "joa";
 }
+
+
+
 
 /*전체 컨테이너에 대한 속성*/
 .container {
@@ -76,14 +92,27 @@ body {
   align-items: center;
   justify-content: center;
 }
-#current-weather{
+.cloudy {
   background-image: url('./img/cloudyIcon.png');
+}
+.rainy {
+  background-image: url('./img/rainyIcon.png');
+}
+.sunny {
+  background-image: url('./img/sunnyIcon.png');
+}
+.snowy {
+  background-image: url('./img/snowyIcon.png');
+}
+#current-weather{
+  
   background-repeat: no-repeat;
   background-size: cover;
   width : 30px;
   height : 30px;
   margin-left : 5px;
 }
+
 
 /*컨테이너의 -2. 진행중, 진행완료 div 박스*/
 .taskStatus {
