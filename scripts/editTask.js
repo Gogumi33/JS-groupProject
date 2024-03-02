@@ -18,7 +18,6 @@ const editTask = (task, id) => {
   document.getElementById("editInput").innerHTML = editHTML;
   currentID = id;
 };
-
 /*
     할 일 수정 함수2
     위 함수에서 저장해놓은 id를 통해 taskList에서의 수정할 부분을 찾는다.

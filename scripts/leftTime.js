@@ -1,19 +1,23 @@
-let leftTime = 0;
-// 실시간 시간 구하기
+let datePickerValue = "";
+let leftTime = "";
+
+/* 실시간 현재시간, 타임픽커의 값들이 있고, 데드라인 설정 후 남은시간을 구할 수 있음*/
 function getClock() {
+  datePickerValue = DateTimePicker.value; // 사용자가 달력, 시간 선택한 값
+
   const date = new Date();
   const curHours = String(date.getHours()).padStart(2, "0"); // 실시간 시
   const curMinutes = String(date.getMinutes()).padStart(2, "0"); // 실시간 분
-  // 타임피커의 문자열 시간쪽만
-  const pickerHour = timePicker.value.substr(0, 2).padStart(2, "0"); // 타임피커 시
-  const pickerMinute = timePicker.value.substr(3, 5).padStart(2, "0"); // 타임피커 분
+  // DateTimePicker의 값
+  const pickerHour = DateTimePicker.value.slice(11, 13); // DateTimePicker의 시
+  const pickerMinute = DateTimePicker.value.slice(14, 16); // DateTimePicker의 분
+  console.log(datePickerValue);
+  console.log("데드라인 시", pickerHour);
+  console.log("데드라인 분", pickerMinute);
 
-  // console.log("피커 시", timePicker.value.substr(0, 2));
-  // console.log("피커 분", timePicker.value.substr(3, 5));
-  // 절대값으로 시끼리, 분끼리의 결과를 출력
-  leftTime = `${pickerHour - curHours}시간 ${
-    pickerMinute - curMinutes
-  }분 남았습니다`;
-  console.log(leftTime);
+  // 남은시간 = 데드라인 설정시간 - 실시간현재시간
+  leftTime = `${pickerHour - curHours}:${pickerMinute - curMinutes}`;
+  console.log("남은시간", leftTime);
 }
-addButton.addEventListener("click", getClock);
+// addButton.addEventListener("click", getClock);
+DateTimePicker.addEventListener("input", getClock);
