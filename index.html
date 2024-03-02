@@ -15,11 +15,26 @@
   <body>
     <div class="container">
       <div class="title-area">
-        <h1>To do List</h1>
+        <div class ="date-area">
+          <div>일자리</div>
+          <div>월자리</div>
+          <div>년도자리</div>
+        </div>
+        <!--h1>To do List</--h1-->
+        <div class = "date-and-weather-area">
+          <div>요일자리</div>
+          <div>날씨자리</div>
+        </div>
       </div>
       <div class="taskStatus">
-        <button onclick="render(`doing`)">doing</button>
-        <button onclick="render(`done`)">done</button>
+        <div class = "statusWrap1">
+          <button onclick="render(`doing`)">doing</button>
+          <button onclick="render(`done`)">done</button>
+        </div>
+        <div class = "statusWrap2">
+          <div id = "completeRatio">0%</div>
+          <button id="refresh-btn" onclick="taskReset()"></button>
+        </div>
       </div>
       <!--할 일들이 저장되는 task area 공간-->
       <div id="task-area-board" class="task-area"></div>
@@ -32,7 +47,6 @@
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
-          <button id="refresh-btn" onclick="taskReset()"></button>
         </button>
       </div>
     </div>
