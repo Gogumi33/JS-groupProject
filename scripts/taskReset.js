@@ -12,6 +12,7 @@ const taskReset = () => {
       const confirmMessage = confirm(`모든 할 일을 삭제하시겠습니까?`);
       if (confirmMessage) {
         localStorage.clear(); // 확인버튼 클릭시 전체삭제 진행
+        taskList = [];
         ProgressTask();
         render("doing");
         console.log(`전체삭제 실행`);
