@@ -153,7 +153,7 @@ button {
   justify-content: center;
 }
 #time-picker {
-  width: 130px;
+  width: 210px;
 }
 /*할 일 추가 버튼과 완료 버튼 생김새 정의 (체크표시)*/
 .completeBtns {
