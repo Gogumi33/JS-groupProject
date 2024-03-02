@@ -32,6 +32,7 @@ const render = (mode) => {
         resultHTML += `
         <div id = ${taskList[i].id} class="task">
         <div class = "wrap1">
+
           <div id = "wrap1-1">
             <button class = "task-done-btn" onclick= "completeTask('${
               taskList[i].id
@@ -41,16 +42,14 @@ const render = (mode) => {
 
           <div id = "dead" style = "display : ${
             taskList[i].deadlineTime ? "block" : "none"
-          } " >
+          }">
                <div class = "task-doing-time">데드라인: ${
                  taskList[i].deadlineTime
                }
-            </div>
+              </div>
+          </div>
 
-            </div>
         </div>
-
-
 
                     <div class = "wrap2">
                         <button class = "task-edit-btn" onclick = "editTask('${
