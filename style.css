@@ -31,14 +31,31 @@ body {
 /*컨테이너의 -1. 타이틀존*/
 .title-area {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   flex-grow: 0;
-  padding: 0.5em;
+  padding: 0.3em;
+  width : 100%;
+  justify-content:space-between;
 }
-.title-area h1 {
-  margin: 0;
+
+/*년, 월, 일이 출력되는 date-area*/
+.date-area {
+  display : flex;
+  flex-direction: row;
 }
+#current-date {
+  font-size : 30px;
+  margin-right : 0.5em;
+}
+/*요일과 날씨가 출력되는 date-and-weather-area*/
+.date-and-weather-area {
+  display : flex;
+  flex-direction: row;
+}
+
+
+
 
 /*컨테이너의 -2. 진행중, 진행완료 div 박스*/
 .taskStatus {
