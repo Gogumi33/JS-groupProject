@@ -16,9 +16,9 @@ const editTask = (task, time, id) => {
     <button id = "micBtn" onclick = "record()"></button>
 
     <div id="changed-deadline-container">
-            <span>데드라인</span>
-            <input id="changedDateTimePicker" type="datetime-local" value=${time} />
-          </div>
+      <span>데드라인</span>
+      <input id="changedDateTimePicker" type="datetime-local" value=${time} />
+    </div>
     `;
   document.getElementById("editInput").innerHTML = editHTML;
   currentID = id;
