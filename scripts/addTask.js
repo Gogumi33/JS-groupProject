@@ -29,6 +29,8 @@ const addTask = (event) => {
   render("doing"); //값을 추가한 뒤 화면에 렌더 (상태 = doing = 진행중인 창을 띄워준다.)
   recordIconInit(); //마이크아이콘 초기화
   addInputTextInit();
+  
+  new Notification("할 일 알림", {body:'할 일이 추가되었습니다.'});
 };
 
 /* 랜덤으로 ID를 생성해주는 함수 */
