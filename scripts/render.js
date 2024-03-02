@@ -43,7 +43,7 @@ const render = (mode) => {
           </div>
           <div id = "dead" style = "display : ${taskList[i].deadlineTime ? "flex" : "none"}">
             <div class = "dummy"></div>
-            <div class = "task-doing-time">데드라인 : ${taskList[i].deadlineTime}</div>
+            <div class = "task-doing-time">⏰ ${taskList[i].deadlineTime.slice(0, 2)} 시 ${taskList[i].deadlineTime.slice(3, 5)}분까지</div>
           </div>
         </div>
       
