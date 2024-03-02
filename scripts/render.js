@@ -31,34 +31,21 @@ const render = (mode) => {
         //아직 진행중이라면 (false)
         resultHTML += `
         <div id = ${taskList[i].id} class="task">
-        <div class = "wrap1">
-          <div id = "wrap1-1">
-            <button class = "task-done-btn" onclick= "completeTask('${
-              taskList[i].id
-            }')"></button>
-            <div class = "task-doing-name">${taskList[i].taskContent}</div>
+          <div class = "wrapContainer">
+            <div class = "wrap1">
+                <button class = "task-done-btn" onclick= "completeTask('${taskList[i].id}')"></button>
+                <div class = "task-doing-name">${taskList[i].taskContent}</div>
+            </div>
+            <div class = "wrap2">
+                <button class = "task-edit-btn" onclick = "editTask('${taskList[i].taskContent}', '${taskList[i].id}')" data-bs-toggle="modal" data-bs-target="#editModal"></button>
+                <button class = "task-delete-btn" onclick = "deleteTask('${taskList[i].id}')"></button>
+            </div>
           </div>
-          <div id = "dead" style = "display : ${
-            taskList[i].deadlineTime ? "block" : "none"
-          }">
-               <div class = "task-doing-time">데드라인: ${
-                 taskList[i].deadlineTime
-               }
-              </div>
+          <div id = "dead" style = "display : ${taskList[i].deadlineTime ? "flex" : "none"}">
+            <div class = "dummy"></div>
+            <div class = "task-doing-time"> ${taskList[i].deadlineTime.slice(11, 13)} 시 ${taskList[i].deadlineTime.slice(14, 16)}분까지⏰</div>
           </div>
         </div>
-
-                    <div class = "wrap2">
-                        <button class = "task-edit-btn" onclick = "editTask('${
-                          taskList[i].taskContent
-                        }','${taskList[i].deadlineTime}','${
-          taskList[i].id
-        }')" data-bs-toggle="modal" data-bs-target="#editModal"></button>
-                        <button class = "task-delete-btn" onclick = "deleteTask('${
-                          taskList[i].id
-                        }')"></button>
-                    </div>
-                </div>
             `;
       }
     }
