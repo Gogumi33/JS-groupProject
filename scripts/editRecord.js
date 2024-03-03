@@ -50,7 +50,7 @@ const editRecordStopBtnCreate = () => {
   editRecordStopBtn.onclick = function () {
     console.log("recordStopBtn 클릭되었습니다.");
     recordStop();
-    recordIconInit();
+    editRecordIconInit();
   };
 
   // 녹음 중지 이미지 생성
@@ -111,7 +111,4 @@ const editRecordStart = () => {
   recognition.start(); //음성인식을 시작
 };
 
-// window.addEventListener("load", () => {
-//   availabilityFunc();
-//   //recordOnAddBtn();
-// });
+

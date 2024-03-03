@@ -277,7 +277,7 @@ button {
   height: 30px;
   background-image: url("./img/cute_mic_on.svg");
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
 }
 
 /*수정 모달 마이크 버튼*/
@@ -286,7 +286,7 @@ button {
   width: 30px;
   height: 30px;
   background-image: url("./img/cute_mic_on.svg");
-  background-repeat : no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -295,7 +295,7 @@ button {
   width: 30px;
   height: 30px;
   background-image: url("./img/cute_mic_record.svg");
-  background-repeat : no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -304,10 +304,9 @@ button {
   width: 30px;
   height: 30px;
   background-image: url("./img/micOff_cuteIcon.svg");
-  background-repeat : no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
 }
-
 
 /* 데드라인 입력창 */
 #deadline-container {
@@ -453,15 +452,16 @@ button {
 }
 /* 스크롤이 움직이는 뒷 배경 */
 ::-webkit-scrollbar-track {
-  background-color: rgba(225, 232, 243, 0.1);
+  background-color: transparent;
+  /* background-color: rgba(225, 232, 243, 0.1); */
   border-radius: 10px;
 }
-*/
+
 /*마이크 디폴트 버튼*/
 #micAddOnBtn {
   width: 50px;
   height: 50px;
-  background-image: url("./img/micOff.svg");
+  background-image: url("./img/cute_mic_on.svg");
   background-repeat: no-repeat;
   background-size: contain;
   transition: all 0.2s linear;

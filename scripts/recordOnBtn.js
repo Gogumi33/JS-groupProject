@@ -10,6 +10,7 @@ const recordOnAddBtn = () => {
   
   //음성인식이 끝까지 이루어지면 중단된다.
   recognition.addEventListener("speechend", () => {});
+  micState="off";
 
   //
   //음성인식 결과를 반환
@@ -54,7 +55,7 @@ const recordOnAddBtn = () => {
         deleteTask(resultString);
       
     } 
-    micAddOnBtn.style.backgroundImage = "url('./img/micOff.svg')"
+    micAddOnBtn.style.backgroundImage = "url('./img/cute_mic_on.svg')"
     console.log(e.results[0][0].transcript);
   });
 
@@ -71,7 +72,7 @@ micAddOnBtn.addEventListener("click", () => {
   }
   else { //마이크가 켜져있을 때 클릭하면 꺼진다.
     micState = "off"
-    micAddOnBtn.style.backgroundImage = "url('./img/micOff.svg')"
+    micAddOnBtn.style.backgroundImage = "url('./img/cute_mic_on.svg')"
     recordStop();
   }
 
