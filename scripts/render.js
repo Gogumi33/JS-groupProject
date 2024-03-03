@@ -104,4 +104,5 @@ const render = (mode) => {
 
   document.getElementById("task-area-board").innerHTML = resultHTML;
 };
+ProgressTask();
 render("doing");
