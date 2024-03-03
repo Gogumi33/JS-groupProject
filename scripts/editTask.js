@@ -92,4 +92,3 @@ changedValue.addEventListener("keydown", function(event) {
         changeTask(event);
     }
 })*/
-console.log("changedValue", changedValue);
