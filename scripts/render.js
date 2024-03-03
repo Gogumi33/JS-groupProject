@@ -53,10 +53,9 @@ const render = (mode) => {
             taskList[i].deadlineTime ? "flex" : "none"
           }">
             <div class = "dummy"></div>
-            <div class = "task-doing-time"> ${taskList[i].deadlineTime.slice(
-              11,
-              13
-            )} 시 ${taskList[i].deadlineTime.slice(14, 16)}분까지⏰</div>
+            <div class = "task-doing-time">
+            ${taskList[i].deadlineTime.slice(5,7)}/${taskList[i].deadlineTime.slice(8,10)}   
+            ${taskList[i].deadlineTime.slice(11,13)}:${taskList[i].deadlineTime.slice(14, 16)}까지⏰</div>
           </div>
         </div>
             `;
