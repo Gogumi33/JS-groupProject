@@ -80,11 +80,12 @@ const changeTask = (event) => {
 };
 
 editButton.addEventListener("click", changeTask);
+/*
 changedValue.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     document.getElementById("editBtn").click();
   }
-});
+});*/
 console.log("changedValue", changedValue);
 /*
 changedValue.addEventListener("keydown", function(event) {

@@ -21,7 +21,6 @@ const recordOnAddBtn = () => {
       const micEditButton = document.getElementById(`${editMicTask}`)
       console.log(editMicTask);
       
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!",micEditButton, editMicTaskDead, editMicTaskId);
       micEditButton.addEventListener("click", async (event) => {
         for (let i = 0; i < taskList.length; i++) {
           if (taskList[i].taskContent == editMicTask) {

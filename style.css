@@ -273,17 +273,40 @@ button {
   margin-left: 15px;
   width: 30px;
   height: 30px;
-  background-image: url("./img/micIcon.svg");
+  background-image: url("./img/cute_mic_on.svg");
   background-repeat: no-repeat;
+  background-size:cover;
 }
 
+/*수정 모달 마이크 버튼*/
 #editMicBtn {
   margin-left: 15px;
   width: 30px;
   height: 30px;
-  background-image: url("./img/micIcon.svg");
-  background-repeat: no-repeat;
+  background-image: url("./img/cute_mic_on.svg");
+  background-repeat : no-repeat;
+  background-size: cover;
 }
+
+#editRecordStartBtn {
+  margin-left: 15px;
+  width: 30px;
+  height: 30px;
+  background-image: url("./img/cute_mic_record.svg");
+  background-repeat : no-repeat;
+  background-size: cover;
+}
+
+#editRecordStopBtn {
+  margin-left: 15px;
+  width: 30px;
+  height: 30px;
+  background-image: url("./img/micOff_cuteIcon.svg");
+  background-repeat : no-repeat;
+  background-size: cover;
+}
+
+
 /* 데드라인 입력창 */
 #deadline-container {
   border: none !important;
@@ -386,7 +409,7 @@ button {
 #micAddOnBtn {
   width: 50px;
   height: 50px;
-  background-image: url("./img/micDefault.svg");
+  background-image: url("./img/micIcon.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }

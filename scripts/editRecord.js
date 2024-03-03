@@ -22,6 +22,7 @@ const editRecordStartBtnCreate = () => {
   };
 
   // 녹음 중 이미지 생성
+  /*
   const recordingImage = document.createElement("img");
   recordingImage.src =
     "https://w7.pngwing.com/pngs/316/323/png-transparent-button-phonograph-record-computer-icons-button-root-sound-recording-and-reproduction-record-thumbnail.png"; // 녹음 중 이미지 URL로 변경
@@ -31,9 +32,9 @@ const editRecordStartBtnCreate = () => {
 
   // editRecordStartBtn 안에 녹음 중 이미지 추가
   editRecordStartBtn.appendChild(recordingImage);
-
+*/
   // 모달 바디에 editRecordStartBtn 추가
-  document.getElementById("edit-modal-body").appendChild(editRecordStartBtn);
+  document.getElementById("changedInputMic").appendChild(editRecordStartBtn);
 };
 
 const editRecordStopBtnCreate = () => {
@@ -53,6 +54,7 @@ const editRecordStopBtnCreate = () => {
   };
 
   // 녹음 중지 이미지 생성
+  /*
   const recordingStopImage = document.createElement("img");
   recordingStopImage.src =
     "https://cdn-icons-png.freepik.com/512/1279/1279899.png"; // 녹음 중 이미지 URL로 변경
@@ -61,10 +63,10 @@ const editRecordStopBtnCreate = () => {
   recordingStopImage.style.height = "50px"; //
 
   // recordStopBtn 안에 녹음 중 이미지 추가
-  editRecordStopBtn.appendChild(recordingStopImage);
+  editRecordStopBtn.appendChild(recordingStopImage);*/
 
   // 모달 바디에 recordStopBtn 추가
-  document.getElementById("edit-modal-body").appendChild(editRecordStopBtn);
+  document.getElementById("changedInputMic").appendChild(editRecordStopBtn);
 };
 
 const editRecordIconInit = () => {
