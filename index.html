@@ -31,8 +31,9 @@
       </div>
       <div class="taskStatus">
         <div class="statusWrap1">
-          <button onclick="render(`doing`)">doing</button>
-          <button onclick="render(`done`)">done</button>
+          <button id="doing" onclick="render(`doing`)">doing</button>
+          <button id="done" onclick="render(`done`)">done</button>
+          <div id = "underline"></div>
         </div>
         <div class="statusWrap2">
           <div id="completeRatio">0%</div>
@@ -172,5 +173,6 @@
     <script src="./scripts/editRecord.js"></script>
     <script src="./scripts/getCurrentDate.js"></script>
     <script src="./scripts/weather.js"></script>
+    <script src="./scripts/underbar.js"></script>
   </body>
 </html>
