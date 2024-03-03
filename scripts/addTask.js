@@ -12,6 +12,14 @@ const addTask = (event) => {
     alert(`할 일을 작성 후 추가버튼을 눌러주세요!`);
     return;
   }
+  for (let i = 0; i < taskList.length; i++) {
+    if (taskList[i].taskContent === taskInput.value) {
+      alert(`이미 등록된 할 일 입니다!`);
+      return;
+    }
+  }
+  
+  
 
   /* 해야 할 일에 대한 정보를 담은task 객체
         - id는 랜덤값

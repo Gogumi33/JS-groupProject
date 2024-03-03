@@ -23,6 +23,7 @@
           </div>
         </div>
         <!--h1>To do List</--h1-->
+        <button id="micAddOnBtn"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN4oSAZkVmHTQYXyhxfGRrust8sd_ulla67A&usqp=CAU" alt="이미지 버튼"></button>
         <div class="date-and-weather-area">
           <div id="current-day">요일자리</div>
           <div id="current-weather"></div>
@@ -73,7 +74,6 @@
               type="button"
               class="btn-close"
               id="btnClose"
-              onclick="modalInit()"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
@@ -85,7 +85,7 @@
               type="text"
               placeholder="당신의 오늘 할 일은?"
             />
-            <button id="micBtn" onclick="record()"></button>
+            <button id="micBtn"></button>
           </div>
           <!-- 데드라인 콘테이너 : 시간, 분을 설정할 수 있다.  -->
           <div id="deadline-container">
@@ -113,7 +113,7 @@
       class="modal fade"
       id="editModal"
       tabindex="-1"
-      aria-labelledby="exampleModalLabel"
+      aria-labelledby="editModalLabel"
       aria-hidden="true"
     >
       <!--모달 전체 창 : 중앙에 배치하기-->
@@ -122,16 +122,22 @@
         <div class="modal-content">
           <!--모달창 헤더 : 모달창 전체 제목과 엑스 버튼이 있음-->
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">✎ 할 일 수정하기</h5>
+            <h5 class="modal-title" id="editModalLabel">✎ 할 일 수정하기</h5>
             <button
               type="button"
               class="btn-close"
+              id="btn-close-id"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
           <!--모달창 바디 : 인풋창과 마이크 버튼이 있다.-->
-          <div class="modal-body" id="editInput"></div>
+          <div class="modal-body" id="edit-modal-body">
+            <!-- <input
+              id="editInput"
+            />
+            <button id="editMicBtn" onclick="editRecord()"></button> -->
+          </div>
           <!--모달창 푸터 : 완료 버튼이 있고 누르면 할 일이 추가된다.-->
           <div class="modal-footer">
             <button
@@ -162,6 +168,7 @@
     <script src="./scripts/progressTask.js"></script>
     <script src="./scripts/deadLine.js"></script>
     <script src="./scripts/leftTime.js"></script>
+    <script src="./scripts/editRecord.js"></script>
     <script src="./scripts/getCurrentDate.js"></script>
     <script src="./scripts/weather.js"></script>
   </body>

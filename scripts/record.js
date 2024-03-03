@@ -96,6 +96,7 @@ const availabilityFunc = () => {
 };
 
 const recordStart = () => {
+  availabilityFunc();
   console.log("시작");
 
   recognition.addEventListener("speechstart", () => {
@@ -123,9 +124,10 @@ const recordStop = () => {
   console.log("종료");
   recognition.stop(); // 음성인식을 중단하고 중단까지의 결과를 반환
 };
-window.addEventListener("load", () => {
-  availabilityFunc();
-});
+// window.addEventListener("load", () => {
+//   availabilityFunc();
+//   //recordOnAddBtn();
+// });
 
 
 
