@@ -1,11 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="./icons8-favorite-32.png" type="image/x-icon">
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title-area">
+        <div class="date-area">
+          <div id="current-date"></div>
+          <div>
+            <div id="current-month"></div>
+            <div id="current-year"></div>
+          </div>
+        </div>
+        <!--h1>To do List</--h1-->
+       
+        <div class="date-and-weather-area">
+          <div id="current-day"></div>
+          <div id="current-weather"></div>
+        </div>
+      </div>
+      <div class="taskStatus">
+        <div class="statusWrap1">
+          <button id="doing" onclick="render(`doing`)">doing</button>
+          <button id="done" onclick="render(`done`)">done</button>
+          <div id = "underline"></div>
+        </div>
+        <div class="statusWrap2">
+          <div id="completeRatio">0%</div>
+          <button id="refresh-btn" onclick="taskReset()"></button>
+        </div>
+      </div>
+      <!--할 일들이 저장되는 task area 공간-->
+      <div id="task-area-board" class="task-area"></div>
+      <!--맨 밑에 있는 할 일 추가 버튼-->
+      <div class="input-area">
+        <!-- Button trigger modal -->
+        <button
+          id="task-add-btn"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        ></button>
+        <button id="micAddOnBtn"></button>
+      </div>
+    </div>
+    <!-- Modal -->
+    <!--모달 전체를 포함하는 어두운 창-->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <!--모달 전체 창 : 중앙에 배치하기-->
+      <div class="modal-dialog modal-dialog-centered">
+        <!--모달 안에 창-->
+        <div class="modal-content">
+          <!--모달창 헤더 : 모달창 전체 제목과 엑스 버튼이 있음-->
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              할 일을 추가해보세요
+            </h5>
+            <buttog
+              type="button"
+              class="btn-close"
+              id="btnClose"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></buttog>
+          </div>
+          <!--모달창 바디 : 인풋창과 마이크 버튼이 있다.-->
+          <div class="modal-body">
+            <input
+              id="modalInput"
+              type="text"
+              placeholder="당신의 오늘 할 일은?"
+            />
+            <button id="micBtn"></button>
+          </div>
+          <!-- 데드라인 콘테이너 : 시간, 분을 설정할 수 있다.  -->
+          <div id="deadline-container">
+            <span id="deadlinespan">데드라인 👉</span>
+            <input id="date-time-picker" type="datetime-local" />
+          </div>
+          <!--모달창 푸터 : 완료 버튼이 있고 누르면 할 일이 추가된다.-->
+          <div class="modal-footer">
+            <button
+              id="completeBtn"
+              type="button"
+              class="completeBtns"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!------- 수정용 모달 구분선 ------->
+
+    <!-- Modal -->
+    <!--모달 전체를 포함하는 어두운 창-->
+    <div
+      class="modal fade"
+      id="editModal"
+      tabindex="-1"
+      aria-labelledby="editModalLabel"
+      aria-hidden="true"
+    >
+      <!--모달 전체 창 : 중앙에 배치하기-->
+      <div class="modal-dialog modal-dialog-centered">
+        <!--모달 안에 창-->
+        <div class="modal-content">
+          <!--모달창 헤더 : 모달창 전체 제목과 엑스 버튼이 있음-->
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">✎ 할 일 수정하기</h5>
+            <button
+              type="button"
+              class="btn-close"
+              id="btn-close-id"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!--모달창 바디 : 인풋창과 마이크 버튼이 있다.-->
+          <div class="modal-body" id="edit-modal-body">
+            <!-- <input
+              id="editInput"
+            />
+            <button id="editMicBtn" onclick="editRecord()"></button> -->
+          </div>
+          <!--모달창 푸터 : 완료 버튼이 있고 누르면 할 일이 추가된다.-->
+          <div class="modal-footer">
+            <button
+              id="editBtn"
+              type="button"
+              class="completeBtns"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./scripts/addTask.js"></script>
+    <script src="./scripts/completeTask.js"></script>
+    <script src="./scripts/delTask.js"></script>
+    <script src="./scripts/editTask.js"></script>
+    <script src="./scripts/record.js"></script>
+    <script src="./scripts/render.js"></script>
+    <script src="./scripts/taskReset.js"></script>
+    <script src="./scripts/modalInit.js"></script>
+    <script src="./scripts/recordOnBtn.js"></script>
+    <script src="./scripts/alert.js"></script>
+    <script src="./scripts/progressTask.js"></script>
+    <script src="./scripts/deadLine.js"></script>
+    <script src="./scripts/leftTime.js"></script>
+    <script src="./scripts/editRecord.js"></script>
+    <script src="./scripts/getCurrentDate.js"></script>
+    <script src="./scripts/weather.js"></script>
+    <script src="./scripts/updateTime.js"></script>
+    <script src="./scripts/underbar.js"></script>
+  </body>
 </html>

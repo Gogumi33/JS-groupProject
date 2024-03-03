@@ -1,0 +1,492 @@
+@font-face {
+  font-family: "fonthanna";
+  src: url(font/fonthanna.ttf);
+}
+@font-face {
+  font-family: "hannaair";
+  src: url(font/hannaair.ttf);
+}
+@font-face {
+  font-family: "dohyonttf";
+  src: url(font/dohyonttf.ttf);
+  font-weight: 100;
+}
+@font-face {
+  font-family: "joa";
+  src: url(font/jua.ttf);
+}
+
+.cloudyBg {
+  background-image: url("./img/cloudybackground.jpg");
+}
+.rainyBg {
+  background-image: url("./img/rainybackground.jpg");
+}
+.sunnyBg {
+  background-image: url("./img/sunnybackground.jpg");
+}
+.snowyBg {
+  background-image: url("./img/snowybackground.jpg");
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "joa";
+}
+
+/*전체 컨테이너에 대한 속성*/
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*background-color: white;*/
+  /*border-radius: 30px;*/
+  width: 85%;
+  height: 80%;
+  /*border: 1px solid black;*/
+  padding: 1.5em;
+  fill: rgba(255, 255, 255, 0.13);
+  box-shadow: -50.467px 50.467px 50.467px 0px rgba(255, 255, 255, 0.13) inset,
+    50.467px -50.467px 50.467px 0px rgba(194, 194, 194, 0.13) inset;
+  backdrop-filter: blur(38.35466766357422px);
+}
+
+/*컨테이너의 -1. 타이틀존*/
+.title-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  padding: 0.3em;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/*년, 월, 일이 출력되는 date-area*/
+.date-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#current-date {
+  font-size: 40px;
+  margin-right: 0.2em;
+}
+/*요일과 날씨가 출력되는 date-and-weather-area*/
+.date-and-weather-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.cloudy {
+  background-image: url("./img/cloudyIcon.png");
+}
+.rainy {
+  background-image: url("./img/rainyIcon.png");
+}
+.sunny {
+  background-image: url("./img/sunnyIcon.png");
+}
+.snowy {
+  background-image: url("./img/snowyIcon.png");
+}
+#current-weather {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+}
+
+/*컨테이너의 -2. 진행중, 진행완료 div 박스*/
+.taskStatus {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #e9e9e9;
+  width: 100%;
+}
+/*메뉴바*/
+#underline {
+  position: absolute;
+  width: 52px;
+  height: 4px;
+  background-color: rgba(6, 6, 6, 0.5);
+  border-radius: 50px;
+}
+.completeRatio {
+  width: 50px;
+  height: 4px;
+  margin-right: 30px;
+}
+.statusWrap1 {
+  font-size: 18px;
+}
+.statusWrap2 {
+  width: 16%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/*해야할 일이 쌓이는 공간에 대한 속성*/
+.task-area {
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /*border: 1px solid red;*/
+  width: 100%;
+  /*margin: 1em 0;*/
+  flex-grow: 1;
+}
+
+/*add 버튼 클릭 시 생성되는 할 일 태그에 대한 속성 (완료, 테스크명, 수정, 삭제)*/
+.task {
+  width: 100%; /*task-area의 크기에 맞게*/
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+}
+
+.dummy {
+  width: 20px;
+  height: 20px;
+  margin-right: 1em;
+}
+
+/*완료 버튼과 테스크 이름*/
+.wrapContainer {
+  width: 100%;
+  display: flex;
+}
+.wrap1 {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: flex-start;
+}
+/* 완료 버튼과 테스크 이름 */
+#wrap1-1 {
+  display: flex;
+  flex-direction: row;
+}
+/* 렌더상의 데드라인박스 */
+#dead {
+  display: flex;
+  flex-direction: row;
+}
+/*수정과 삭제 버튼*/
+.wrap2 {
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+/*할 일 추가 버튼*/
+.task-done-btn {
+  background-image: url("./img/completeIcon.svg");
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-right: 1em;
+}
+/*수정 버튼*/
+.task-edit-btn {
+  background-image: url("./img/editIcon.svg");
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-right: 1em;
+}
+/*삭제 버튼*/
+.task-delete-btn {
+  background-image: url("./img/deleteIcon.svg");
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+.task-done-name {
+  text-decoration: line-through;
+}
+.task-done-time {
+  text-decoration: line-through;
+}
+
+/*하단 추가 버튼 공간에 대한 속성*/
+.input-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-grow: 0;
+  padding: 0.5em;
+}
+/*하단 추가 버튼*/
+#task-add-btn {
+  width: 40px;
+  height: 40px;
+  background-image: url("./img/addIcon.svg");
+  background-repeat: no-repeat;
+}
+#task-add-btn:hover {
+  transition: all 0.2s linear;
+  transform: scale(1.4) rotate(180deg);
+}
+
+/* 새로고침 버튼 */
+#refresh-btn {
+  width: 25px;
+  height: 25px;
+  background-image: url("./img/refreshIcon.svg");
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  padding-bottom: 10px;
+}
+/* 마우스 호버시 보여지는 속성 */
+#refresh-btn:hover {
+  transform: rotate(90deg);
+  transition: 0.25s;
+}
+
+/*모달창*/
+.modal-body {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+#micBtn {
+  margin-left: 15px;
+  width: 30px;
+  height: 30px;
+  background-image: url("./img/cute_mic_on.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*수정 모달 마이크 버튼*/
+#editMicBtn {
+  margin-left: 15px;
+  width: 30px;
+  height: 30px;
+  background-image: url("./img/cute_mic_on.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#editRecordStartBtn {
+  margin-left: 15px;
+  width: 30px;
+  height: 30px;
+  background-image: url("./img/cute_mic_record.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#editRecordStopBtn {
+  margin-left: 15px;
+  width: 30px;
+  height: 30px;
+  background-image: url("./img/micOff_cuteIcon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* 데드라인 입력창 */
+#deadline-container {
+  border: none !important;
+  /* border: 1px solid #dee2e6; */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+#deadlinespan {
+  margin-right: 10px;
+  font-weight: bolder;
+  font-size: large;
+}
+/* 달력,시간입력하는 input창 */
+#date-time-picker {
+  width: 210px;
+  border: 1px solid #dee2e6;
+}
+/*할 일 추가 버튼과 완료 버튼 생김새 정의 (체크표시)*/
+.completeBtns {
+  width: 30px;
+  height: 30px;
+  background-image: url("./img/completeIcon.svg");
+  background-repeat: no-repeat;
+}
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  margin: 2px;
+}
+
+.hide {
+  display: none;
+}
+
+/*태블릿 사이즈*/
+@media (min-width: 600px) and (max-width: 992px) {
+  .container {
+    width: 65%;
+  }
+  .statusWrap2 {
+    width: 18%;
+  }
+  #current-date {
+    font-size: 40px;
+    margin-right: 0.2em;
+  }
+  #current-year {
+    font-size: 15px;
+  }
+  #current-month {
+    font-size: 15px;
+  }
+  .date-and-weather-area {
+    font-size: 20px;
+  }
+}
+/*데스트탑 사이즈*/
+@media (min-width: 992px) {
+  .container {
+    width: 45%;
+  }
+  .statusWrap2 {
+    width: 15%;
+  }
+  #refresh-btn {
+    margin-right: 15px;
+    padding-bottom: 10px;
+  }
+  #current-date {
+    font-size: 50px;
+    margin-right: 0.2em;
+  }
+  #current-year {
+    font-size: 17px;
+  }
+  #current-month {
+    font-size: 17px;
+  }
+  .date-and-weather-area {
+    font-size: 25px;
+  }
+}
+
+/*수정 모달창*/
+#edit-modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#changedInputMic {
+  display: flex;
+  justify-content: center;
+}
+#changed-deadline-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+#changedDateTimePicker {
+  margin-left: 10px;
+  width: 210px;
+}
+#editDealineSpan {
+  font-weight: bolder;
+  font-size: large;
+}
+#editInput {
+  justify-content: center;
+  align-items: center;
+}
+#changedInput {
+  width: 40%;
+}
+
+/*스크롤바*/
+
+/*스크롤바 막대*/
+::-webkit-scrollbar {
+  width: 20px;
+  height: 3px;
+}
+
+/* ::-webkit-scrollbar-thumb {
+  background: #4ecb71;
+  border-radius: 12px 12px 12px 12px;
+  background-clip: padding-box;
+  border: 7px solid transparent;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #d9d9d9;
+} */
+::-webkit-scrollbar-thumb {
+  background: #a0a0a5;
+  border-radius: 12px 12px 12px 12px;
+  background-clip: padding-box;
+  border: 7px solid transparent;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #babac0;
+}
+/* 스크롤이 움직이는 뒷 배경 */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  /* background-color: rgba(225, 232, 243, 0.1); */
+  border-radius: 10px;
+}
+
+/*마이크 디폴트 버튼*/
+#micAddOnBtn {
+  width: 50px;
+  height: 50px;
+  background-image: url("./img/cute_mic_on.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.2s linear;
+  transform: scale(1);
+}
+
+#micAddOnBtn:hover {
+  transition: all 0.2s linear;
+  transform: scale(1.4);
+}
+/*마이크 시작할 때 버튼*/
+#recordStartBtn {
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+  background-image: url("./img/micStart.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+/*녹음중단*/
+#recordStopBtn {
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+  background-image: url("./img/micOff.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
