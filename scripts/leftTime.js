@@ -2,7 +2,6 @@ let datePickerValue = "";
 let leftTime = "";
 
 let checkDate = "";
-let diffTime = 0;
 
 /* 실시간 현재시간, 타임픽커의 값들이 있고, 데드라인 설정 후 남은시간을 구할 수 있음*/
 function getClock() {
@@ -33,26 +32,28 @@ function getClock() {
 
   // if( pickerHour - curHours < 0 ) diffHour = -(pickerHour - curHours)
   // else diffHour = pickerHour - curHours;
-  // console.log(diffHour);
 
   // diffDate = pickerDate - curDate;
 
-  // console.log(diffDate, "@@@");
-  // console.log("남은시간", leftTime);
-  checkDate = DateTimePicker.value.slice(0, 10);
-  const newDate = new Date(checkDate);
 
-  diffTime = Math.abs(newDate.getTime() - date.getTime()); // 설정한 날짜와 현재시간의 날짜 차이 구하기.
-  diffTime = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  console.log(diffTime);
+  // checkDate = DateTimePicker.value.slice(0, 10);
+  // const newDate = new Date(checkDate);
+
+  // diffTime = Math.abs(newDate.getTime() - date.getTime()); // 설정한 날짜와 현재시간의 날짜 차이 구하기.
+  // diffTime = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  // console.log(diffTime);
 }
 // addButton.addEventListener("click", getClock);
 DateTimePicker.addEventListener("input", getClock);
 
-function alertDate() {
-  if(diffTime<=1){ // 데드라인 하루가 남았을 때 웹 푸시 API 호출
-    new Notification("일정알림", {body:'하루 남은 일정이 있습니다.'});
-  }
+function calcDate(dead) {
+  let nowDate = new Date();
+  let deadDate = new Date(dead);
+
+  let period = Math.abs(deadDate.getTime() - nowDate.getTime());
+  period = Math.ceil(period/(1000*60*60*24));
+
+  return period;
 }
 
-setInterval(alertDate, 86400000); // 하루 단위로 자동으로 실행
+// setInterval(alertDate, 86400000); // 하루 단위마다 alertDate() 자동으로 실행

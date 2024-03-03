@@ -29,6 +29,9 @@ const addTask = (event) => {
     id: randomIDGenerate(),
     taskContent: taskInput.value,
     deadlineTime: DateTimePicker.value,
+    deadlineDay: DateTimePicker.value.slice(0, 10),
+    deadline: calcDate(DateTimePicker.value.slice(0, 10)),
+    deadhour: diffHour,
     isComplete: false,
   };
 
