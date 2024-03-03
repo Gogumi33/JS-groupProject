@@ -84,20 +84,12 @@ const changeTask = (event) => {
 };
 
 editButton.addEventListener("click", changeTask);
-<<<<<<< HEAD
 /*
 changedValue.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     document.getElementById("editBtn").click();
   }
 });*/
-=======
-// changedValue.addEventListener("keydown", (event) => {
-//   if (event.key === "Enter") {
-//     document.getElementById("editBtn").click();
-//   }
-// });
->>>>>>> e5336daea584aec8a011b0b10460967d3a0ea4cd
 console.log("changedValue", changedValue);
 /*
 changedValue.addEventListener("keydown", function(event) {
