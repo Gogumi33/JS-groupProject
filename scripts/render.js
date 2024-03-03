@@ -39,7 +39,7 @@ const render = (mode) => {
                 <div class = "task-doing-name">${taskList[i].taskContent}</div>
             </div>
             <div class = "wrap2">
-                <button class = "task-edit-btn" id=${taskList[i].taskContent}  onclick = "editTask('${
+                <button class = "task-edit-btn" id=${taskList[i].taskContent.replace(/\s/g, "")}  onclick = "editTask('${
                   taskList[i].taskContent
                 }','${taskList[i].deadlineTime}', '${
           taskList[i].id
@@ -53,10 +53,9 @@ const render = (mode) => {
             taskList[i].deadlineTime ? "flex" : "none"
           }">
             <div class = "dummy"></div>
-            <div class = "task-doing-time"> ${taskList[i].deadlineTime.slice(
-              11,
-              13
-            )} 시 ${taskList[i].deadlineTime.slice(14, 16)}분까지⏰</div>
+            <div class = "task-doing-time">
+            ${taskList[i].deadlineTime.slice(5,7)}/${taskList[i].deadlineTime.slice(8,10)}   
+            ${taskList[i].deadlineTime.slice(11,13)}:${taskList[i].deadlineTime.slice(14, 16)}까지⏰</div>
           </div>
         </div>
             `;
@@ -77,7 +76,7 @@ const render = (mode) => {
                 <div class = "task-done-name">${taskList[i].taskContent}</div>
             </div>
             <div class = "wrap2">
-                <button id=${taskList[i].taskContent} class = "task-edit-btn" onclick = "editTask('${
+                <button id=${taskList[i].taskContent.replace(/\s/g, "")} class = "task-edit-btn" onclick = "editTask('${
                   taskList[i].taskContent
                 }','${taskList[i].deadlineTime}', '${
           taskList[i].id
