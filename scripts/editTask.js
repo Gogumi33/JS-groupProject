@@ -44,10 +44,12 @@ const editTask = (task, time, id) => {
 
   // 모달창 열기 등의 추가적인 로직
   editHTML = `
-    <input id="changedInput" type="text" value="${task}">
-    <button id="editMicBtn" onclick="editRecord()"></button>
+  <div id = "changedInputMic">
+  <input id="changedInput" type="text" value="${task}">
+  <button id="editMicBtn" onclick="editRecord()"></button>
+</div>
     <div id="changed-deadline-container">
-      <span>데드라인</span>
+      <span id = "editDealineSpan">데드라인 👉</span>
       <input id="changedDateTimePicker" type="datetime-local" value=${time} />
     </div>
     `;
