@@ -1,11 +1,17 @@
 const micAddOnBtn = document.getElementById("micAddOnBtn");
+let editMicTaskDead;
+let editMicTaskId;
+let micState = "off"
+
 const recordOnAddBtn = () => {
   availabilityFunc();
   recognition.addEventListener("speechstart", () => {});
-
+  
+  
   //음성인식이 끝까지 이루어지면 중단된다.
   recognition.addEventListener("speechend", () => {});
 
+  //
   //음성인식 결과를 반환
   // SpeechRecognitionResult 에 담겨서 반환된다.
   recognition.addEventListener("result", (e) => {
@@ -14,7 +20,21 @@ const recordOnAddBtn = () => {
       document.getElementById("task-add-btn").click();
     } else if (e.results[0][0].transcript.includes("수정")) {
       recordStop();
-      document.querySelector(".task-edit-btn").click();
+      const editMicTask = e.results[0][0].transcript.split(' ')[0];
+      const micEditButton = document.getElementById(`${editMicTask}`)
+      
+      micEditButton.addEventListener("click", async (event) => {
+        for (let i = 0; i < taskList.length; i++) {
+          if (taskList[i].taskContent == editMicTask) {
+            editMicTaskDead = await taskList[i].deadlineTime
+            editMicTaskId = taskList[i].id
+            break
+          }
+        }
+        editTask(editMicTask, editMicTaskDead, editMicTaskId);//할 일 이름, 시간, 아이디
+      })
+
+      micEditButton.click();
       const resultString = e.results[0][0].transcript
         .replace("수정", "")
         .replace(/\s/g, "")
@@ -29,13 +49,25 @@ const recordOnAddBtn = () => {
         deleteTask(resultString);
       
     } 
-
+    micAddOnBtn.style.backgroundImage = "url('./img/micOff.svg')"
     console.log(e.results[0][0].transcript);
   });
 
   recognition.start(); //음성인식을 시작
+  
 };
 
 micAddOnBtn.addEventListener("click", () => {
-  recordOnAddBtn();
+  if (micState === "off") { //마이크가 꺼져있을 때 클릭하면 켜진다.
+    micState = "on"
+    console.log(micState)
+    micAddOnBtn.style.backgroundImage = "url('./img/micStart.svg')"
+    recordOnAddBtn();
+  }
+  else { //마이크가 켜져있을 때 클릭하면 꺼진다.
+    micState = "off"
+    micAddOnBtn.style.backgroundImage = "url('./img/micOff.svg')"
+    recordStop();
+  }
+
 });

@@ -39,7 +39,7 @@ const render = (mode) => {
                 <div class = "task-doing-name">${taskList[i].taskContent}</div>
             </div>
             <div class = "wrap2">
-                <button class = "task-edit-btn" onclick = "editTask('${
+                <button class = "task-edit-btn" id=${taskList[i].taskContent}  onclick = "editTask('${
                   taskList[i].taskContent
                 }','${taskList[i].deadlineTime}', '${
           taskList[i].id
@@ -76,7 +76,7 @@ const render = (mode) => {
                 <div class = "task-done-name">${taskList[i].taskContent}</div>
             </div>
             <div class = "wrap2">
-                <button class = "task-edit-btn" onclick = "editTask('${
+                <button id=${taskList[i].taskContent} class = "task-edit-btn" onclick = "editTask('${
                   taskList[i].taskContent
                 }','${taskList[i].deadlineTime}', '${
           taskList[i].id

@@ -40,7 +40,6 @@ const changeIcon = (data) => {
         docBody.className = 'cloudyBg'
         console.log("cloudy");
     }
-
 }
 
 

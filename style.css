@@ -17,16 +17,16 @@
 }
 
 .cloudyBg {
-  background-image: url('./img/cloudybackground.jpg');
+  background-image: url("./img/cloudybackground.jpg");
 }
 .rainyBg {
-  background-image: url('./img/rainybackground.jpg');
+  background-image: url("./img/rainybackground.jpg");
 }
 .sunnyBg {
-  background-image: url('./img/sunnybackground.jpg');
+  background-image: url("./img/sunnybackground.jpg");
 }
 .snowyBg {
-  background-image: url('./img/snowybackground.jpg');
+  background-image: url("./img/snowybackground.jpg");
 }
 body {
   display: flex;
@@ -36,14 +36,10 @@ body {
   padding: 0;
   width: 100%;
   height: 100vh;
-  background-image: url("./img/sunnybackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "joa";
 }
-
-
-
 
 /*전체 컨테이너에 대한 속성*/
 .container {
@@ -93,26 +89,24 @@ body {
   justify-content: center;
 }
 .cloudy {
-  background-image: url('./img/cloudyIcon.png');
+  background-image: url("./img/cloudyIcon.png");
 }
 .rainy {
-  background-image: url('./img/rainyIcon.png');
+  background-image: url("./img/rainyIcon.png");
 }
 .sunny {
-  background-image: url('./img/sunnyIcon.png');
+  background-image: url("./img/sunnyIcon.png");
 }
 .snowy {
-  background-image: url('./img/snowyIcon.png');
+  background-image: url("./img/snowyIcon.png");
 }
-#current-weather{
-  
+#current-weather {
   background-repeat: no-repeat;
   background-size: cover;
-  width : 30px;
-  height : 30px;
-  margin-left : 5px;
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
 }
-
 
 /*컨테이너의 -2. 진행중, 진행완료 div 박스*/
 .taskStatus {
@@ -122,6 +116,14 @@ body {
   border-bottom: 1px solid #e9e9e9;
   width: 100%;
 }
+/*메뉴바*/
+#underline {
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  background-color: black;
+}
+
 .statusWrap2 {
   display: flex;
   flex-direction: row;
@@ -215,6 +217,10 @@ body {
 
 /*하단 추가 버튼 공간에 대한 속성*/
 .input-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   flex-grow: 0;
   padding: 0.5em;
 }
@@ -225,10 +231,14 @@ body {
   background-image: url("./img/addIcon.svg");
   background-repeat: no-repeat;
 }
-#task-add-btn:hover{
-  transition : all 0.2s linear;
-  transform: scale(1.4)
+#task-add-btn:hover {
+  transition: all 0.2s linear;
+  transform: scale(1.4) rotate(180deg);
 }
+
+
+
+
 /* 새로고침 버튼 */
 #refresh-btn {
   width: 20px;
@@ -302,38 +312,49 @@ button {
   display: none;
 }
 
-#micAddOnBtn img {
-  width: 35px; /* 원하는 크기로 조절 */
-  height: auto; /* 비율을 유지하면서 크기 조절 */
-}
-
-
 /*태블릿 사이즈*/
-@media (min-width : 600px) and (max-width : 992px) {
+@media (min-width: 600px) and (max-width: 992px) {
   .container {
-    width : 65%;
+    width: 65%;
   }
 }
 /*데스트탑 사이즈*/
-@media (min-width : 992px) {
+@media (min-width: 992px) {
   .container {
-    width : 45%;
+    width: 45%;
   }
 }
 
 /*수정 모달창*/
+#edit-modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#changedInputMic {
+  display: flex;
+  justify-content: center;
+}
+#changed-deadline-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+#changedDateTimePicker {
+  margin-left: 10px;
+  width: 210px;
+}
+#editDealineSpan {
+  font-weight: bolder;
+  font-size: large;
+}
 #editInput {
   justify-content: center;
   align-items: center;
 }
 #changedInput {
-  width : 60%;
-}
-#changed-deadline-container {
-  width : 40%;
-}
-#changedDateTimePicker {
-  width : 100px;
+  width: 40%;
 }
 
 /*스크롤바*/
@@ -341,15 +362,49 @@ button {
 /*스크롤바 막대*/
 ::-webkit-scrollbar {
   width: 20px;
-  height : 3px;
+  height: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4ECB71;
+  background: #4ecb71;
   border-radius: 12px 12px 12px 12px;
   background-clip: padding-box;
   border: 7px solid transparent;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color:#D9D9D9;
+  background-color: #d9d9d9;
+}
+
+/*마이크 디폴트 버튼*/
+#micAddOnBtn {
+  width : 50px;
+  height : 50px;
+  background-image: url("./img/micOff.svg");
+  background-repeat: no-repeat;
+  background-size : contain;
+  transition : all 0.2s linear;
+  transform : scale(1.0);
+}
+
+#micAddOnBtn:hover{
+  transition : all 0.2s linear;
+  transform : scale(1.4);
+}
+/*마이크 시작할 때 버튼*/
+#recordStartBtn {
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+  background-image: url("./img/micStart.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+/*녹음중단*/
+#recordStopBtn {
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+  background-image: url("./img/micOff.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
