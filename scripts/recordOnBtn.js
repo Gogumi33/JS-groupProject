@@ -30,7 +30,7 @@ const recordOnAddBtn = () => {
           break
         }
       }
-      console.log("mic!!!!!!!!!!", micEditButton, editMicTaskDead, editMicTaskId);
+      console.log(micEditButton, editMicTaskDead, editMicTaskId);
       micEditButton.addEventListener("click", (event) => {
         editTask(editMicTask, editMicTaskDead, editMicTaskId);//할 일 이름, 시간, 아이디
       })

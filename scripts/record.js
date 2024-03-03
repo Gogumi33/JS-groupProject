@@ -22,16 +22,18 @@ const recordStartBtnCreate = () => {
   };
 
   // 녹음 중 이미지 생성
+  /*
   const recordingImage = document.createElement("img");
   recordingImage.src =
     "https://w7.pngwing.com/pngs/316/323/png-transparent-button-phonograph-record-computer-icons-button-root-sound-recording-and-reproduction-record-thumbnail.png"; // 녹음 중 이미지 URL로 변경
+  
   recordingImage.alt = "Recording Image";
   recordingImage.style.width = "50px"; // 원하는 크기로 조절
   recordingImage.style.height = "50px"; // 원하는 크기로 조절
 
   // recordStartBtn 안에 녹음 중 이미지 추가
   recordStartBtn.appendChild(recordingImage);
-
+*/
   // 모달 바디에 recordStartBtn 추가
   document.querySelector(".modal-body").appendChild(recordStartBtn);
 };
@@ -53,6 +55,7 @@ const recordStopBtnCreate = () => {
   };
 
   // 녹음 중지 이미지 생성
+  /*
   const recordingStopImage = document.createElement("img");
   recordingStopImage.src =
     "https://cdn-icons-png.freepik.com/512/1279/1279899.png"; // 녹음 중 이미지 URL로 변경
@@ -62,9 +65,10 @@ const recordStopBtnCreate = () => {
 
   // recordStopBtn 안에 녹음 중 이미지 추가
   recordStopBtn.appendChild(recordingStopImage);
-
+*/
   // 모달 바디에 recordStopBtn 추가
   document.querySelector(".modal-body").appendChild(recordStopBtn);
+  
 };
 
 const recordIconInit = () => {
