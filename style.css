@@ -243,14 +243,7 @@ body {
 }
 
 
-#micAddOnBtn img {
-  width: 35px; /* 원하는 크기로 조절 */
-  height: auto; /* 비율을 유지하면서 크기 조절 */
-}
-#micAddOnBtn:hover{
-  transition : all 0.2s linear;
-  transform : scale(1.4);
-}
+
 
 
 /* 새로고침 버튼 */
@@ -379,9 +372,16 @@ button {
 #micAddOnBtn {
   width : 50px;
   height : 50px;
-  background-image: url("./img/micDefault.svg");
+  background-image: url("./img/micOff.svg");
   background-repeat: no-repeat;
   background-size : contain;
+  transition : all 0.2s linear;
+  transform : scale(1.0);
+}
+
+#micAddOnBtn:hover{
+  transition : all 0.2s linear;
+  transform : scale(1.4);
 }
 /*마이크 시작할 때 버튼*/
 #recordStartBtn {
