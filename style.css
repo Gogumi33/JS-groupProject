@@ -1,3 +1,33 @@
+@font-face {
+  font-family: "fonthanna";
+  src: url(font/fonthanna.ttf);
+}
+@font-face {
+  font-family: "hannaair";
+  src: url(font/hannaair.ttf);
+}
+@font-face {
+  font-family: "dohyonttf";
+  src: url(font/dohyonttf.ttf);
+  font-weight: 100;
+}
+@font-face {
+  font-family: "joa";
+  src: url(font/jua.ttf);
+}
+
+.cloudyBg {
+  background-image: url('./img/cloudybackground.jpg');
+}
+.rainyBg {
+  background-image: url('./img/rainybackground.jpg');
+}
+.sunnyBg {
+  background-image: url('./img/sunnybackground.jpg');
+}
+.snowyBg {
+  background-image: url('./img/snowybackground.jpg');
+}
 body {
   display: flex;
   justify-content: center;
@@ -6,8 +36,14 @@ body {
   padding: 0;
   width: 100%;
   height: 100vh;
-  background-color: #c5ebaa;
+  background-image: url("./img/sunnybackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "joa";
 }
+
+
+
 
 /*전체 컨테이너에 대한 속성*/
 .container {
@@ -15,11 +51,16 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  border-radius: 30px;
-  width: 70%;
+  /*background-color: white;*/
+  /*border-radius: 30px;*/
+  width: 85%;
   height: 80%;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
+  padding: 1.5em;
+  fill: rgba(255, 255, 255, 0.13);
+  box-shadow: -50.467px 50.467px 50.467px 0px rgba(255, 255, 255, 0.13) inset,
+    50.467px -50.467px 50.467px 0px rgba(194, 194, 194, 0.13) inset;
+  backdrop-filter: blur(38.35466766357422px);
 }
 
 /*컨테이너의 -1. 타이틀존*/
@@ -28,10 +69,62 @@ body {
   align-items: center;
   justify-content: center;
   flex-grow: 0;
-  padding: 0.5em;
+  padding: 0.3em;
+  width: 100%;
+  justify-content: space-between;
 }
-.title-area h1 {
-  margin: 0;
+
+/*년, 월, 일이 출력되는 date-area*/
+.date-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#current-date {
+  font-size: 40px;
+  margin-right: 0.2em;
+}
+/*요일과 날씨가 출력되는 date-and-weather-area*/
+.date-and-weather-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.cloudy {
+  background-image: url('./img/cloudyIcon.png');
+}
+.rainy {
+  background-image: url('./img/rainyIcon.png');
+}
+.sunny {
+  background-image: url('./img/sunnyIcon.png');
+}
+.snowy {
+  background-image: url('./img/snowyIcon.png');
+}
+#current-weather{
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  width : 30px;
+  height : 30px;
+  margin-left : 5px;
+}
+
+
+/*컨테이너의 -2. 진행중, 진행완료 div 박스*/
+.taskStatus {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #e9e9e9;
+  width: 100%;
+}
+.statusWrap2 {
+  display: flex;
+  flex-direction: row;
 }
 
 /*해야할 일이 쌓이는 공간에 대한 속성*/
@@ -41,8 +134,8 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid red;
-  width: 80%;
+  /*border: 1px solid red;*/
+  width: 100%;
   /*margin: 1em 0;*/
   flex-grow: 1;
 }
@@ -51,14 +144,25 @@ body {
 .task {
   width: 100%; /*task-area의 크기에 맞게*/
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 1em 0;
 }
-/*완료 버튼과 테스크 이름, 데드라인 묶음*/
+
+.dummy {
+  width: 20px;
+  height: 20px;
+  margin-right: 1em;
+}
+
+/*완료 버튼과 테스크 이름*/
+.wrapContainer {
+  width: 100%;
+  display: flex;
+}
 .wrap1 {
   flex-grow: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   /* align-items: center; */
   justify-content: flex-start;
 }
@@ -70,6 +174,7 @@ body {
 /* 렌더상의 데드라인박스 */
 #dead {
   display: flex;
+  flex-direction: row;
 }
 /*수정과 삭제 버튼*/
 .wrap2 {
@@ -104,6 +209,9 @@ body {
 .task-done-name {
   text-decoration: line-through;
 }
+.task-done-time {
+  text-decoration: line-through;
+}
 
 /*하단 추가 버튼 공간에 대한 속성*/
 .input-area {
@@ -112,15 +220,19 @@ body {
 }
 /*하단 추가 버튼*/
 #task-add-btn {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-image: url("./img/addIcon.svg");
   background-repeat: no-repeat;
 }
+#task-add-btn:hover{
+  transition : all 0.2s linear;
+  transform: scale(1.4)
+}
 /* 새로고침 버튼 */
 #refresh-btn {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background-image: url("./img/refreshIcon.svg");
   background-repeat: no-repeat;
 }
@@ -157,13 +269,21 @@ button {
 }
 /* 데드라인 입력창 */
 #deadline-container {
-  border: 1px solid black;
+  border: none !important;
+  /* border: 1px solid #dee2e6; */
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
+}
+#deadlinespan {
+  margin-right: 10px;
+  font-weight: bolder;
+  font-size: large;
 }
 /* 달력,시간입력하는 input창 */
 #date-time-picker {
   width: 210px;
+  border: 1px solid #dee2e6;
 }
 /*할 일 추가 버튼과 완료 버튼 생김새 정의 (체크표시)*/
 .completeBtns {
@@ -175,6 +295,7 @@ button {
 .modal-footer {
   display: flex;
   justify-content: center;
+  margin: 2px;
 }
 
 .hide {
@@ -184,4 +305,18 @@ button {
 #micAddOnBtn img {
   width: 35px; /* 원하는 크기로 조절 */
   height: auto; /* 비율을 유지하면서 크기 조절 */
+}
+
+
+/*태블릿 사이즈*/
+@media (min-width : 600px) and (max-width : 992px) {
+  .container {
+    width : 65%;
+  }
+}
+/*데스트탑 사이즈*/
+@media (min-width : 992px) {
+  .container {
+    width : 45%;
+  }
 }

@@ -21,6 +21,6 @@ function deleteTask(taskId) {
     deleteTask(currentID)
   }
   console.log("todolist", JSON.stringify(taskList));
-  render(renderStatus);
   ProgressTask();
+  render(renderStatus);
 }
