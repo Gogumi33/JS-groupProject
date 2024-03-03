@@ -17,31 +17,33 @@ const recordOnAddBtn = () => {
       document.getElementById("task-add-btn").click();
     } else if (e.results[0][0].transcript.includes("수정")) {
       recordStop();
-      const editMicTask = e.results[0][0].transcript.split(' ')[0];
+      let editMicTask = e.results[0][0].transcript.replace("수정", "")
+      .replace(/\s/g, "");
       const micEditButton = document.getElementById(`${editMicTask}`)
       console.log(editMicTask);
       
       console.log("!!!!!!!!!!!!!!!!!!!!!!!",micEditButton, editMicTaskDead, editMicTaskId);
       micEditButton.addEventListener("click", async (event) => {
         for (let i = 0; i < taskList.length; i++) {
-          if (taskList[i].taskContent == editMicTask) {
+          if (taskList[i].taskContent.replace(/\s/g, "") == editMicTask) {
             // 수정해야할 task의 id찾기
             //수정하고자 하는 데이터의 isComplete이 true이면 진행완료 (done), false이면 진행중 (doing)
             renderStatus = taskList[i].isComplete ? "done" : "doing";
             editMicTaskDead = await taskList[i].deadlineTime
             editMicTaskId = taskList[i].id
-            break
+            editMicTask = taskList[i].taskContent
+            break 
           }
         }
         editTask(editMicTask, editMicTaskDead, editMicTaskId);//할 일 이름, 시간, 아이디
       })
 
       micEditButton.click();
-      const resultString = e.results[0][0].transcript
-        .replace("수정", "")
-        .replace(/\s/g, "")
-        .trim();
-      editTask(resultString);
+      // const resultString = e.results[0][0].transcript
+      //   .replace("수정", "")
+      //   .replace(/\s/g, "")
+      //   .trim();
+      // editTask(resultString);
       
     } else if (e.results[0][0].transcript.includes("삭제")) {
       const resultString = e.results[0][0].transcript

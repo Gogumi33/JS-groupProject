@@ -67,6 +67,10 @@ const changeTask = (event) => {
       //수정하고자 하는 데이터의 isComplete이 true이면 진행완료 (done), false이면 진행중 (doing)
       renderStatus = taskList[i].isComplete ? "done" : "doing";
       taskList[i].taskContent = changedInput.value;
+      if(changedInput.value===''){
+        alert(`수정사항을 작성 후 수정버튼을 눌러주세요!`);
+        return;
+      }
       taskList[i].deadlineTime = changedDateTimePicker.value;
     }
   }
@@ -78,11 +82,11 @@ const changeTask = (event) => {
 };
 
 editButton.addEventListener("click", changeTask);
-changedValue.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    document.getElementById("editBtn").click();
-  }
-});
+// changedValue.addEventListener("keydown", (event) => {
+//   if (event.key === "Enter") {
+//     document.getElementById("editBtn").click();
+//   }
+// });
 console.log("changedValue", changedValue);
 /*
 changedValue.addEventListener("keydown", function(event) {
