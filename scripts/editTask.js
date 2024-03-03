@@ -11,9 +11,11 @@ let currentID = ""; // 수정 시 어떤것을 수정할 것인지에 대한 판
     전역변수 currentID에 해당 id를 저장해둔다.
 */
 const editTask = (task, time, id) => {
+  console.log("editTask 실행!");
   console.log(taskList);
   console.log("editTask함수호출 id값은", id);
   console.log("과정1");
+  console.log(task, time, id);
 
   if (id === undefined) {
     console.log("id=undefined");

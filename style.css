@@ -215,6 +215,10 @@ body {
 
 /*하단 추가 버튼 공간에 대한 속성*/
 .input-area {
+  display : flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   flex-grow: 0;
   padding: 0.5em;
 }
@@ -229,6 +233,18 @@ body {
   transition : all 0.2s linear;
   transform: scale(1.4)
 }
+
+
+#micAddOnBtn img {
+  width: 35px; /* 원하는 크기로 조절 */
+  height: auto; /* 비율을 유지하면서 크기 조절 */
+}
+#micAddOnBtn:hover{
+  transition : all 0.2s linear;
+  transform : scale(1.4);
+}
+
+
 /* 새로고침 버튼 */
 #refresh-btn {
   width: 20px;
@@ -302,10 +318,6 @@ button {
   display: none;
 }
 
-#micAddOnBtn img {
-  width: 35px; /* 원하는 크기로 조절 */
-  height: auto; /* 비율을 유지하면서 크기 조절 */
-}
 
 
 /*태블릿 사이즈*/
@@ -327,13 +339,13 @@ button {
   align-items: center;
 }
 #changedInput {
-  width : 60%;
+  width : 35%;
 }
 #changed-deadline-container {
-  width : 40%;
+  width : 65%;
 }
 #changedDateTimePicker {
-  width : 100px;
+  width : 180px;
 }
 
 /*스크롤바*/
@@ -352,4 +364,32 @@ button {
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color:#D9D9D9;
+}
+
+
+/*마이크 디폴트 버튼*/
+#micAddOnBtn {
+  width : 50px;
+  height : 50px;
+  background-image: url("./img/micDefault.svg");
+  background-repeat: no-repeat;
+  background-size : contain;
+}
+/*마이크 시작할 때 버튼*/
+#recordStartBtn {
+  width : 30px;
+  height : 30px;
+  margin-left:15px;
+  background-image: url("./img/micStart.svg");
+  background-repeat: no-repeat;
+  background-size : contain;
+}
+/*녹음중단*/
+#recordStopBtn{
+  width : 30px;
+  height : 30px;
+  margin-left:15px;
+  background-image: url("./img/micOff.svg");
+  background-repeat: no-repeat;
+  background-size : contain;
 }

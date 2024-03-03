@@ -14,5 +14,4 @@ const ProgressTask = () => {
   render("doing");
 };
 
-ProgressTask();
-render();
+render("doing");
