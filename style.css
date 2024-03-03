@@ -313,6 +313,21 @@ button {
   }
 }
 
+/*수정 모달창*/
+#editInput {
+  justify-content: center;
+  align-items: center;
+}
+#changedInput {
+  width : 60%;
+}
+#changed-deadline-container {
+  width : 40%;
+}
+#changedDateTimePicker {
+  width : 100px;
+}
+
 /*스크롤바*/
 
 /*스크롤바 막대*/
