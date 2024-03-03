@@ -327,13 +327,13 @@ button {
   align-items: center;
 }
 #changedInput {
-  width : 60%;
+  width : 35%;
 }
 #changed-deadline-container {
-  width : 40%;
+  width : 65%;
 }
 #changedDateTimePicker {
-  width : 100px;
+  width : 180px;
 }
 
 /*스크롤바*/

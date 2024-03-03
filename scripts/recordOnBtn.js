@@ -1,4 +1,7 @@
 const micAddOnBtn = document.getElementById("micAddOnBtn");
+let editMicTaskDead = '';
+let editMicTaskId = '';
+
 const recordOnAddBtn = () => {
   availabilityFunc();
   recognition.addEventListener("speechstart", () => {});
@@ -14,7 +17,8 @@ const recordOnAddBtn = () => {
       document.getElementById("task-add-btn").click();
     } else if (e.results[0][0].transcript.includes("수정")) {
       recordStop();
-      document.querySelector(".task-edit-btn").click();
+      const editMicTask = e.results[0][0].transcript.split(' ')[0];
+      const micEditButton = document.getElementById(`${editMicTask}`).click();
       const resultString = e.results[0][0].transcript
         .replace("수정", "")
         .replace(/\s/g, "")

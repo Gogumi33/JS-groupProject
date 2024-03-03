@@ -14,6 +14,7 @@ const editTask = (task, time, id) => {
   console.log(taskList);
   console.log("editTask함수호출 id값은", id);
   console.log("과정1");
+  console.log(task);
 
   if (id === undefined) {
     console.log("id=undefined");
