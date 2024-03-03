@@ -147,6 +147,14 @@ button {
   background-image: url("./img/micIcon.svg");
   background-repeat: no-repeat;
 }
+
+#editMicBtn {
+  margin-left: 15px;
+  width: 30px;
+  height: 30px;
+  background-image: url("./img/micIcon.svg");
+  background-repeat: no-repeat;
+}
 /* 데드라인 입력창 */
 #deadline-container {
   border: 1px solid black;

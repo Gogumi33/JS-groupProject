@@ -97,7 +97,7 @@
       class="modal fade"
       id="editModal"
       tabindex="-1"
-      aria-labelledby="exampleModalLabel"
+      aria-labelledby="editModalLabel"
       aria-hidden="true"
     >
       <!--모달 전체 창 : 중앙에 배치하기-->
@@ -106,16 +106,22 @@
         <div class="modal-content">
           <!--모달창 헤더 : 모달창 전체 제목과 엑스 버튼이 있음-->
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">✎ 할 일 수정하기</h5>
+            <h5 class="modal-title" id="editModalLabel">✎ 할 일 수정하기</h5>
             <button
               type="button"
               class="btn-close"
+              id="btn-close-id"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
           <!--모달창 바디 : 인풋창과 마이크 버튼이 있다.-->
-          <div class="modal-body" id="editInput"></div>
+          <div class="modal-body" id="edit-modal-body">
+            <!-- <input
+              id="editInput"
+            />
+            <button id="editMicBtn" onclick="editRecord()"></button> -->
+          </div>
           <!--모달창 푸터 : 완료 버튼이 있고 누르면 할 일이 추가된다.-->
           <div class="modal-footer">
             <button
@@ -146,5 +152,6 @@
     <script src="./scripts/progressTask.js"></script>
     <script src="./scripts/deadLine.js"></script>
     <script src="./scripts/leftTime.js"></script>
+    <script src="./scripts/editRecord.js"></script>
   </body>
 </html>
