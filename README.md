@@ -2,7 +2,7 @@
 
 # 소머즈's 음성메모장
 
-* domain : https://gogumi-news.netlify.app/
+* domain : https://kcl-todolist.netlify.app/
 * language : HTML/CSS, JavaScript
 * API : web speech API(음성인식), Weather API(날씨), Notification API(웹 푸쉬알림)
 
