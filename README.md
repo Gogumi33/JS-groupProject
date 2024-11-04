@@ -3,6 +3,7 @@
 # 소머즈's 음성메모장
 
 * domain : https://kcl-todolist.netlify.app/
+* period : 2024-01-28 ~ 2024-03-03
 * language : HTML/CSS, JavaScript
 * API : web speech API(음성인식), Notification API(웹 푸쉬알림), Weather API(날씨정보)
 
